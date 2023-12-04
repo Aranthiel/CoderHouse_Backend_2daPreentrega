@@ -1,0 +1,23 @@
+[
+  {
+    "first_name": "Nombre1",
+    "last_name": "Apellido1",
+    "email": "email1@email.com",
+    "password": "$2b$10$kgz.TtQTmcIWw9t6Ff111uvDRKw8rdkkA2W0IkoJr3pFprHxuA2m2",
+    "id": 1
+  },
+  {
+    "first_name": "Nombre2",
+    "last_name": "Apellido2",
+    "email": "email2@email.com",
+    "password": "$2b$10$MC/n482VSfs6zFQSVenk3.q30rUkhYvWdSjPyXkQody70MAF00M/y",
+    "id": 2
+  },
+  {
+    "first_name": "Nombre3",
+    "last_name": "Apellido3",
+    "email": "email3@email.com",
+    "password": "$2b$10$eqTJvKUglcokXCExDX3tNOLzP7uYFvnefHA1Y0roWWCfcmY6hG9z2",
+    "id": 3
+  }
+]

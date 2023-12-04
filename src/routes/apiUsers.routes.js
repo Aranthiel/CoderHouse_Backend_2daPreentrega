@@ -6,6 +6,7 @@ import {
     updateUser, 
     deleteUser, 
 } from '../controllers/users.controller.js'
+import { validateUserCreation, validateUserUpdate } from '../middleware/userValidation.middlewere.js'
 
 
 const apiUsersRouter = Router();
@@ -17,10 +18,10 @@ apiUsersRouter.get('/', getAllUsers);
 apiUsersRouter.get('/:UserId', getUserById); 
 
 //Endpoint POST para APGREGAR UserO
-apiUsersRouter.post('/', addUser ); 
+apiUsersRouter.post('/', validateUserCreation, addUser ); 
 
 //Endpoint PUT para actualizar un Usero por su ID
-apiUsersRouter.put('/:UserId', updateUser );
+apiUsersRouter.put('/:UserId', validateUserUpdate, updateUser );
 
 //Endpoint DELETE para eliminar un Usero por su ID
 apiUsersRouter.delete('/:UserId', deleteUser );

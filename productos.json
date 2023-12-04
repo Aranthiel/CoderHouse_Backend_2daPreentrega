@@ -1,20 +1,83 @@
 [
   {
-    "title": "Nuevo Producto FS 03/12",
-    "code": "electro123",
-    "price": 99.99,
-    "status": true,
-    "stock": 10,
-    "category": "Electrónica",
+    "title": "producto FS 1 4/12",
+    "code": "pfs001",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
     "id": 1
   },
   {
-    "title": "otro Producto FS 03/12",
-    "code": "electro345",
-    "price": 99.99,
-    "status": true,
-    "stock": 10,
-    "category": "Electrónica",
+    "title": "producto FS 2 4/12",
+    "code": "pfs002",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
     "id": 2
+  },
+  {
+    "title": "producto FS 3 4/12",
+    "code": "pfs003",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 3
+  },
+  {
+    "title": "producto FS 4 4/12",
+    "code": "pfs004",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 4
+  },
+  {
+    "title": "producto FS 5 4/12",
+    "code": "pfs005",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 5
+  },
+  {
+    "title": "producto Fs 6 4/12",
+    "code": "pfs006",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 6
+  },
+  {
+    "title": "producto Fs 7 4/12",
+    "code": "pfs007",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 7
+  },
+  {
+    "title": "producto Fs 8 4/12",
+    "code": "pfs008",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 8
+  },
+  {
+    "title": "producto Fs 9 4/12",
+    "code": "pfs009",
+    "price": 126,
+    "status": false,
+    "stock": 4,
+    "category": "prueba",
+    "id": 9
   }
 ]

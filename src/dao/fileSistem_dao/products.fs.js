@@ -2,6 +2,19 @@ import { productModel } from '../../models/products.model.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
 
+/*
+async function writeDataToFile(path, data) {
+	try {
+		console.log('writeDataToFile path products.fs.js', path);
+		await fs.writeFile(path, JSON.stringify(data, null, 2));
+	} catch (error) {
+		throw new Error(
+			`Error al escribir en el archivo ${path}: ${error.message}`
+		);
+	}
+}
+*/
+
 export class ProductsFS{
     /*Debe crearse desde su contructor con el elemento products, el cual será un arreglo vacío */
 

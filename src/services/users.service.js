@@ -1,11 +1,12 @@
-import {usersMongo} from '../dao/mongo_dao/users.mongo';
+//import {usersMongo} from '../dao/mongo_dao/users.mongo';
+import {usersPersistence} from '../config/persistenceManager.js'
 import { hashData }from '../utils.js';
 
 class UsersService{
     async getAllUsers(){
         console.log('ejecutando getAllUsers en users.service.js');
         try {
-            const response = await usersMongo.findAll()
+            const response = await usersPersistence.findAll()
             return response;
         } catch (error) {
             console.error('No se encontraron usuarios', error);
@@ -16,7 +17,7 @@ class UsersService{
     async getUserById(id){
         console.log('ejecutando getUserById en users.service.js');
         try {
-            const response = await usersMongo.findById(id)
+            const response = await usersPersistence.findById(id)
             return response
         } catch (error) {
             console.error('No se encontró el usuario solicitado', error);
@@ -27,7 +28,7 @@ class UsersService{
     async getUserByEmail(email){
         console.log('ejecutando findUserByEmail en users.service.js');
         try {
-            const response = await usersMongo.findByEmail( email );
+            const response = await usersPersistence.findByEmail( email );
             return response;
         } catch (error) {
             console.error('No se encontró el usuario solicitado', error);
@@ -36,11 +37,11 @@ class UsersService{
     }
     
     async createUser(obj) {
-        const {password} = obj;
-        const hashedPassword= hashData(password)
         console.log('ejecutando createUser en users.service.js');
+        const {password} = obj; 
         try {
-            const response = await usersMongo.createOne({...obj, password:hashedPassword,});
+            const hashedPassword= await hashData(password);
+            const response = await usersPersistence.createOne({...obj, password:hashedPassword,});
             console.log('Usuario creado con éxito:', response);
             return response;
         } catch (error) {
@@ -52,7 +53,7 @@ class UsersService{
     async updateUser(id, obj) {
         console.log('ejecutando createUser en users.service.js');
         try {
-            const response = await usersMongo.updateOne(id, obj);
+            const response = await usersPersistence.updateOne(id, obj);
             console.log('Usuario actualizado con éxito:', response);
             return response;
         } catch (error) {
@@ -64,7 +65,7 @@ class UsersService{
     async deleteUser(id) {
         console.log('ejecutando createUser en users.service.js');
         try {
-            const response = await usersMongo.deleteOne(id);
+            const response = await usersPersistence.deleteOne(id);
             console.log('Usuario actualizado con éxito:', response);
             return response;
         } catch (error) {

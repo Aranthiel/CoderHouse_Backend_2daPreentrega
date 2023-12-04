@@ -38,9 +38,9 @@ async function getProductById (req, res){
 
 //funcion intermedia entre router y manager metodo POST para APGREGAR PRODUCTO
 async function addProduct (req, res){
-    console.log('ejecutando addProductC en products.controller.js')   
+    console.log('ejecutando addProduct en products.controller.js')   
     const nuevoProducto= req.body
-    console.log('nuevoProducto en products.controlles.js: ', nuevoProducto)
+    
     try {
         const productoAgregado = await productService.addProduct(nuevoProducto);
         if (productoAgregado){
@@ -77,7 +77,7 @@ async function updateProduct (req , res){
 
 //funcion intermedia entre router y manager metodo DELETE para eliminar un producto por su ID
 async function deleteProduct(req , res){
-    console.log('ejecutando deleteProductC en products.controller.js')
+    console.log('ejecutando deleteProduct en products.controller.js')
     const {productId}=req.params;
     try {
         const deletedProduct = await productService.deleteProduct(productId);

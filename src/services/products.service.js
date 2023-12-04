@@ -1,6 +1,6 @@
-//import {productsPersistence} from '../dao/mongo_dao/products.mongo.js';
+//import {productsMongo} from '../dao/mongo_dao/products.mongo.js';
 /*
-import {productsPersistence}  from '../dao/mongo_dao/products.mongo.js';
+import {productsMongo}  from '../dao/mongo_dao/products.mongo.js';
 const productsPersistence = new productsPersistence();
 */
 import {productsPersistence} from '../config/persistenceManager.js'
