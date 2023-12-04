@@ -1,12 +1,16 @@
-import {productsMongo} from '../dao/mongo_dao/products.mongo.js';
-
+//import {productsPersistence} from '../dao/mongo_dao/products.mongo.js';
+/*
+import {productsPersistence}  from '../dao/mongo_dao/products.mongo.js';
+const productsPersistence = new productsPersistence();
+*/
+import {productsPersistence} from '../config/persistenceManager.js'
 
 class ProductsService {   
 
     async getAllProducts(limit){
         console.log('ejecutando getAllProducts en products.service.js')
         try {
-            const productsList = await productsMongo.findAllAndLimit(limit);
+            const productsList = await productsPersistence.findAllAndLimit(limit);
             
         return productsList;
         } catch (error) {
@@ -18,7 +22,7 @@ class ProductsService {
     async getProductById(pid){
         console.log('ejecutando getProductById en products.service.js')
         try {
-            const product = await productsMongo.findById(pid);            
+            const product = await productsPersistence.findById(pid);            
             
             if(!product){
                 //return `ERROR:NOT FOUND. El producto ${productId} NO se encuentra en el listado de productos, por favor ingrese un producto válido`;
@@ -38,7 +42,7 @@ class ProductsService {
     async addProduct(obj){
         console.log('ejecutando addProduct en products.service.js')
         try {
-            const newProduct= await productsMongo.createOne(obj); 
+            const newProduct= await productsPersistence.createOne(obj); 
             return newProduct;
         } catch (error) {
             console.error('No se pudo agregar el producto', error);
@@ -50,13 +54,13 @@ class ProductsService {
         console.log('ejecutando updateProduct en products.service.js')        
         try {
             // Buscar el producto a actualizar por su ID
-            let response = await productsMongo.updateOne(pid, obj);
+            let response = await productsPersistence.updateOne(pid, obj);
 
             if (!response) {
                 // Producto no encontrado, devuelve null
                 return null;
             }
-            let product = await productsMongo.findById(pid);
+            let product = await productsPersistence.findById(pid);
             return product;
     
         } catch (error) {
@@ -68,7 +72,7 @@ class ProductsService {
     async deleteProduct(pid){
         console.log('ejecutando deleteProduct en products.service.js');
         try {
-            const product = await productsMongo.deleteOne(pid);
+            const product = await productsPersistence.deleteOne(pid);
             return product;
         } catch (error) {
             console.error('No se logró eliminar el producto', error);

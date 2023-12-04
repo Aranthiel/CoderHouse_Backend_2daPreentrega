@@ -1,7 +1,7 @@
 import { cartModel } from '../../models/carts.model.js';
 import {BasicMongo} from './basic.mongo.js';
 
-class CartsMongo extends BasicMongo{
+export class CartsMongo extends BasicMongo{
     constructor(){
         super(cartModel);
     }
@@ -9,4 +9,4 @@ class CartsMongo extends BasicMongo{
     
 }
 
-export const cartsMongo = new CartsMongo();
+//export const cartsMongo = new CartsMongo();

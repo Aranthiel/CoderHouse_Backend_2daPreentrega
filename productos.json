@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Nuevo Producto FS 03/12",
+    "code": "electro123",
+    "price": 99.99,
+    "status": true,
+    "stock": 10,
+    "category": "Electrónica",
+    "id": 1
+  },
+  {
+    "title": "otro Producto FS 03/12",
+    "code": "electro345",
+    "price": 99.99,
+    "status": true,
+    "stock": 10,
+    "category": "Electrónica",
+    "id": 2
+  }
+]

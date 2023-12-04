@@ -27,7 +27,7 @@ class UsersService{
     async getUserByEmail(email){
         console.log('ejecutando findUserByEmail en users.service.js');
         try {
-            const response = await usersMongo.findByEmail({ email });
+            const response = await usersMongo.findByEmail( email );
             return response;
         } catch (error) {
             console.error('No se encontró el usuario solicitado', error);
@@ -36,9 +36,11 @@ class UsersService{
     }
     
     async createUser(obj) {
+        const {password} = obj;
+        const hashedPassword= hashData(password)
         console.log('ejecutando createUser en users.service.js');
         try {
-            const response = await usersMongo.createOne(obj);
+            const response = await usersMongo.createOne({...obj, password:hashedPassword,});
             console.log('Usuario creado con éxito:', response);
             return response;
         } catch (error) {

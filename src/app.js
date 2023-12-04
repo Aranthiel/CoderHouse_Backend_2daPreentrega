@@ -46,5 +46,5 @@ app.get("*", errorRouter);
 
 // Inicia el servidor
 const httpServer = app.listen(PORT, ()=>(
-    console.log(`Pruebas server express. Servidor escuchando en http://localhost:${PORT}`)
+    console.log(`Pruebas server express. Servidor escuchando en http://localhost:${PORT} `)
 ));

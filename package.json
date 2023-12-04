@@ -5,9 +5,11 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "run": "nodemon src/app.js",
-    "test": "nodemon app.js"
+    "start:mongo": "node src/app.js --db mongo",
+    "start:fs": "node src/app.js --db fs",
+    "run:mongo": "nodemon src/app.js --db mongo",
+    "run:fs": "nodemon src/app.js --db fs",
+    "test": "nodemon src/app.js"
   },
   "author": "Aranthiel",
   "license": "ISC",
