@@ -66,31 +66,35 @@ export class UsersFS {
     }
 
     async createOne(obj) {
-        console.log('ejecutando createOne en users.fs.js')        
+        console.log('ejecutando createOne en users.fs.js');
+        console.log("obj.email", obj.email);
         return new Promise(async (resolve, reject) => {
-            try {                
+            try {
                 const users = await this.findAll();
-                if (users.length > 0){
-                    const userExist = await this.findByEmail(obj.email);
+    
+                if (users.length > 0) {
+                    const userExist = users.find(user => user.email === obj.email);
                     if (userExist) {
                         reject(new Error(`El email de usuario ${obj.email} ya está registrado y no se puede utilizar`));
-                    }
-                    else {
+                    } else {
                         obj.id = users[users.length - 1].id + 1;
                         users.push(obj);
+                        await writeDataToFile(this.path, users); // Utiliza el array de usuarios obtenido
+                        resolve(obj);
                     }
-                }else {
+                } else {
                     obj.id = 1;
                     users.push(obj);
+                    await writeDataToFile(this.path, users); // Utiliza el array de usuarios obtenido
+                    resolve(obj);
                 }
-                await writeDataToFile(this.path, users); // Utiliza el array de usuarios obtenido
-                resolve(obj);
                 
             } catch (error) {
                 reject(new Error(`Error al crear el usuario: ${error.message}`));
             }
         });
     }
+    
 
     async updateOne(userId, newValue) {
         console.log('ejecutando updateOne en users.fs.js')

@@ -14,7 +14,7 @@ class UsersService{
         }
     };
 
-    async getUserById(id){
+    async getUserById(id){        
         console.log('ejecutando getUserById en users.service.js');
         try {
             const response = await usersPersistence.findById(id)

@@ -21,7 +21,7 @@ async function getAllUsers(req, res){
 //funcion intermedia entre router y manager metodo GET para obtener un usuario POR SU ID
 async function getUserById (req, res){
     console.log('ejecutando getUserById en users.controller.js')
-    const {userId}=req.params;    
+    const {userId}=req.params; 
         
     try {        
         const userById = await usersService.getUserById(userId);
