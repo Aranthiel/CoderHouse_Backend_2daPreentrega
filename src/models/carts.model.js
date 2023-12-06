@@ -13,10 +13,12 @@ const cartSchema = new Schema({
             },
             quantity: {
                 type:Number,
-            },
-            _id:false,
+                default: 1, // Valor predeterminado para la cantidad si no se especifica
+                min: 1, // Validación para que la cantidad sea al menos 1
+            },            
         },
     ],
+    _id:false,
 });
 
 cartSchema.plugin(mongoosePaginate);

@@ -1,23 +1,61 @@
 [
   {
-    "first_name": "Nombre1",
-    "last_name": "Apellido1",
-    "email": "email1@email.com",
-    "password": "$2b$10$kgz.TtQTmcIWw9t6Ff111uvDRKw8rdkkA2W0IkoJr3pFprHxuA2m2",
-    "id": 1
+    "first_name": "Nombre1_",
+    "last_name": "Apellido1_",
+    "email": "email1_@email.com",
+    "password": "$2b$10$iVukGufWclh3bpyZrQTwlec1xDTZzlppfX.1wN/VS15H3Tkd4ctGe",
+    "_id": 1
+  },
+  {
+    "first_name": "Nombre2",
+    "last_name": "Apellido2",
+    "email": "email2@email.com",
+    "password": "$2b$10$uVHBqehYDIyqrliMAVU2lOj3vY/Ef0E0acx7dp2IaJj./hB3wEr2W",
+    "_id": 2,
+    "cart": 1
   },
   {
     "first_name": "Nombre3",
     "last_name": "Apellido3",
     "email": "email3@email.com",
-    "password": "$2b$10$eqTJvKUglcokXCExDX3tNOLzP7uYFvnefHA1Y0roWWCfcmY6hG9z2",
-    "id": 3
+    "password": "$2b$10$nOhmGeZk97Sf4QqGmZwU/end/t5gX.nzy.KrPAMzxPC7N3U.X/EAi",
+    "_id": 3
   },
   {
-    "first_name": "Nombre1_",
-    "last_name": "Apellido1_",
-    "email": "email1_owo@email.com",
-    "password": "password1_owo",
-    "id": 4
+    "first_name": "Nombre4",
+    "last_name": "Apellido4",
+    "email": "email4@email.com",
+    "password": "$2b$10$Yd4uX7O15ZMGDeAGYHYWNO55vkRzk2vD7mHLw075eudc/n2adv9uG",
+    "_id": 4
+  },
+  {
+    "first_name": "Nombre6",
+    "last_name": "Apellido6",
+    "email": "email6@email.com",
+    "password": "$2b$10$WqqYcgwYd7vn5Id81XNquuuqWoTYe/M8joZsX7pqSoUvXvdn1IR5q",
+    "_id": 5,
+    "cart": 2
+  },
+  {
+    "first_name": "Nombre6",
+    "last_name": "Apellido6",
+    "email": "email6_@email.com",
+    "password": "$2b$10$uByMsUneQAHTKIcSOeE16OOUhsUiV7SAIsre3ZsnNIoTSNB3ZoX1.",
+    "_id": 6,
+    "cart": 3
+  },
+  {
+    "first_name": "Nombre7",
+    "last_name": "Apellido7",
+    "email": "email7@email.com",
+    "password": "$2b$10$n6i9HohDKkqXqTchB//B4OJq/Kp.21.K76zU1IZ8hfbmR/P.kQlbC",
+    "_id": 7
+  },
+  {
+    "first_name": "Nombre8",
+    "last_name": "Apellido8",
+    "email": "email8@email.com",
+    "password": "$2b$10$tk4pawE4J79oNcmtHgu/EusuAtXEGnIoiSJ0iDQAHazPXFs77/waS",
+    "_id": 8
   }
 ]

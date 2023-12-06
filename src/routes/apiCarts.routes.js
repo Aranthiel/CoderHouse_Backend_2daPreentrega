@@ -10,20 +10,20 @@ import {
 
 const apiCartsRouter = Router();
 
-//endpopint GET para obtener TODOS LOS CartOS
+//endpopint GET para obtener TODOS LOS Caritos
 apiCartsRouter.get('/', getAllCarts); 
 
-//endpopint GET para obtener un CartO POR SU ID
-apiCartsRouter.get('/:CartId', getCartById); 
+//endpopint GET para obtener un Carito POR SU ID
+apiCartsRouter.get('/:cartId', getCartById); 
 
-//Endpoint POST para APGREGAR CartO
-apiCartsRouter.post('/', addCart ); 
+//Endpoint POST para CREAR Carito
+apiCartsRouter.post('/:userId', addCart ); 
 
-//Endpoint PUT para actualizar un Carto por su ID
-apiCartsRouter.put('/:CartId', updateCart );
+//Endpoint PUT para actualizar un Carito por su ID
+apiCartsRouter.put('/:cartId', updateCart );
 
-//Endpoint DELETE para eliminar un Carto por su ID
-apiCartsRouter.delete('/:CartId', deleteCart );
+//Endpoint DELETE para eliminar un Carito por su ID
+apiCartsRouter.delete('/:cartId', deleteCart );
 
 
 export default apiCartsRouter;

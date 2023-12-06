@@ -2,19 +2,6 @@ import { productModel } from '../../models/products.model.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
 
-/*
-async function writeDataToFile(path, data) {
-	try {
-		console.log('writeDataToFile path products.fs.js', path);
-		await fs.writeFile(path, JSON.stringify(data, null, 2));
-	} catch (error) {
-		throw new Error(
-			`Error al escribir en el archivo ${path}: ${error.message}`
-		);
-	}
-}
-*/
-
 export class ProductsFS{
     /*Debe crearse desde su contructor con el elemento products, el cual será un arreglo vacío */
 
@@ -53,7 +40,7 @@ export class ProductsFS{
         return new Promise(async (resolve, reject) => {
             try {
                 const products = await this.findAllAndLimit();
-                const product = products.find(product => product.id === pid);
+                const product = products.find(product => product._id === pid);
                 
                 if (!product) {
                     resolve(null); // No se encontró el producto
@@ -79,9 +66,9 @@ export class ProductsFS{
                     // Asignar un ID autoincremental al producto
                     if (!products.length) {
                         // Si el arreglo de productos está vacío, asigna el ID 1
-                        obj.id = 1;
+                        obj._id = 1;
                     } else {
-                        obj.id = products[products.length - 1].id + 1;
+                        obj._id = products[products.length - 1]._id + 1;
                     }
     
                     // Agregar el producto al arreglo
@@ -102,19 +89,20 @@ export class ProductsFS{
             try {
                 // Buscar el producto a actualizar por su ID
                 let product = await this.findById(pid);
+                console.log('product updateOne en products.fs.js', product)
     
                 if (!product) {
                     // Producto no encontrado, rechaza la promesa con un mensaje
                     reject(new Error('Producto no encontrado para actualizar'));
                 } else {
                     // Actualizar el producto con los nuevos valores y mantener el ID original
-                    product = { ...product, ...newValue, id: pid };
+                    product = { ...product, ...newValue, _id: pid };
     
                     // Recuperar el arreglo de productos
                     const products = await this.findAllAndLimit();
     
                     // Encontrar el índice del producto en el arreglo
-                    const productIndex = products.findIndex(p => p.id === pid);
+                    const productIndex = products.findIndex(p => p._id === pid);
     
                     // Crear un nuevo array con el producto actualizado usando splice
                     products.splice(productIndex, 1, product);
@@ -148,7 +136,7 @@ export class ProductsFS{
                     const products = await this.findAllAndLimit();
     
                     // Filtrar los productos para excluir el producto a eliminar
-                    const productsNew = products.filter(prod => prod.id !== pid);
+                    const productsNew = products.filter(prod => prod._id !== pid);
     
                     // Sobreescribir el archivo .json con los productos actualizados
                     await writeDataToFile(this.path, productsNew);

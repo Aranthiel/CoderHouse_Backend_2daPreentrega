@@ -43,18 +43,19 @@ async function addProduct (req, res){
     
     try {
         const productoAgregado = await productService.addProduct(nuevoProducto);
-        if (productoAgregado){
-            res.status(200).json({success: true, message: 'Producto agregado:', productoAgregado});
-            return productoAgregado; 
+        console.log('productoAgregado addProduct en products.controller.js', productoAgregado)
+        
+        if (productoAgregado instanceof Error) {
+            // Manejar el caso de error debido a duplicación de código de producto
+            res.status(400).json({ success: false, message: productoAgregado.message });
         } else {
-            res.status(404).json({ success: false, message: 'No se pudo agregar el producto solicitado'});
+            // Proceder con el flujo normal si es un producto válido
+            res.status(200).json({ success: true, message: 'Producto agregado:', productoAgregado });
         }
+        
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-
-    
-    
 }; //funcionaOK 3/12
 
 //funcion intermedia entre router y manager metodo PUT para actualizar un producto por su ID

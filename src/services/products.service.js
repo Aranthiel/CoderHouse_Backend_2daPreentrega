@@ -22,7 +22,7 @@ class ProductsService {
     async getProductById(pid){
         console.log('ejecutando getProductById en products.service.js')
         try {
-            const product = await productsPersistence.findById(pid);            
+            const product = await productsPersistence.findById(pid); 
             
             if(!product){
                 //return `ERROR:NOT FOUND. El producto ${productId} NO se encuentra en el listado de productos, por favor ingrese un producto válido`;
@@ -43,6 +43,7 @@ class ProductsService {
         console.log('ejecutando addProduct en products.service.js')
         try {
             const newProduct= await productsPersistence.createOne(obj); 
+            console.log('newProduct addProduct en products.service.js', newProduct)
             return newProduct;
         } catch (error) {
             console.error('No se pudo agregar el producto', error);

@@ -1,5 +1,5 @@
 //import {usersMongo} from '../dao/mongo_dao/users.mongo';
-import {usersPersistence} from '../config/persistenceManager.js'
+import {usersPersistence} from '../config/persistenceManager.js';
 import { hashData }from '../utils.js';
 
 class UsersService{
@@ -26,7 +26,7 @@ class UsersService{
     };
 
     async getUserByEmail(email){
-        console.log('ejecutando findUserByEmail en users.service.js');
+        console.log('ejecutando getUserByEmail en users.service.js');
         try {
             const response = await usersPersistence.findByEmail( email );
             return response;
@@ -51,7 +51,7 @@ class UsersService{
     }
 
     async updateUser(id, obj) {
-        console.log('ejecutando createUser en users.service.js');
+        console.log('ejecutando updateUser en users.service.js');
         try {
             const response = await usersPersistence.updateOne(id, obj);
             console.log('Usuario actualizado con éxito:', response);
@@ -63,7 +63,7 @@ class UsersService{
     }
 
     async deleteUser(id) {
-        console.log('ejecutando createUser en users.service.js');
+        console.log('ejecutando deleteUser en users.service.js');
         try {
             const response = await usersPersistence.deleteOne(id);
             console.log('Usuario actualizado con éxito:', response);

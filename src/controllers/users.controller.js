@@ -36,6 +36,8 @@ async function getUserById (req, res){
     }
 }; //funcionaOK 3/12
 
+/* ¿deberia crear el controlador para getUserByEmail?*/
+
 //funcion intermedia entre router y manager metodo POST para APGREGAR usuario
 async function addUser (req, res){
     console.log('ejecutando addUser en users.controller.js')   
@@ -43,12 +45,12 @@ async function addUser (req, res){
     
     try {
         const usuarioAgregado = await usersService.createUser(nuevoUsuario);
-        if (usuarioAgregado){
-            res.status(200).json({success: true, message: 'Usuario agregado con éxito:', usuarioAgregado});
-            return usuarioAgregado; 
-        } else {
+        if (usuarioAgregado instanceof Error){
             res.status(404).json({ success: false, message: 'No se pudo agregar el usuario solicitado'});
-        }
+        return usuarioAgregado; 
+        } else {
+            res.status(200).json({success: true, message: 'Usuario agregado con éxito:', usuarioAgregado});
+            }
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }

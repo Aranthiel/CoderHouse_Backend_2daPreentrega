@@ -2,19 +2,6 @@ import { userModel } from '../../models/users.models.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
 
-/*
-async function writeDataToFile(path, data) {
-	try {
-		console.log('writeDataToFile path  users.fs.js', path);
-		await fs.writeFile(path, JSON.stringify(data, null, 2));
-	} catch (error) {
-		throw new Error(
-			`Error al escribir en el archivo ${path}: ${error.message}`
-		);
-	}
-}
-*/
-
 export class UsersFS {
     constructor(path) {        
         this.path = path;
@@ -44,7 +31,7 @@ export class UsersFS {
         return new Promise(async (resolve, reject) => {
             try {
                 const users = await this.findAll();
-                const user = users.find(user => user.id === uid);
+                const user = users.find(user => user._id === uid);
                 resolve(user || null);
             } catch (error) {
                 reject(new Error(`Error al buscar el usuario: ${error.message}`));
@@ -67,7 +54,7 @@ export class UsersFS {
 
     async createOne(obj) {
         console.log('ejecutando createOne en users.fs.js');
-        console.log("obj.email", obj.email);
+        
         return new Promise(async (resolve, reject) => {
             try {
                 const users = await this.findAll();
@@ -77,13 +64,13 @@ export class UsersFS {
                     if (userExist) {
                         reject(new Error(`El email de usuario ${obj.email} ya está registrado y no se puede utilizar`));
                     } else {
-                        obj.id = users[users.length - 1].id + 1;
+                        obj._id = users[users.length - 1]._id + 1;
                         users.push(obj);
                         await writeDataToFile(this.path, users); // Utiliza el array de usuarios obtenido
                         resolve(obj);
                     }
                 } else {
-                    obj.id = 1;
+                    obj._id = 1;
                     users.push(obj);
                     await writeDataToFile(this.path, users); // Utiliza el array de usuarios obtenido
                     resolve(obj);
@@ -102,18 +89,18 @@ export class UsersFS {
         return new Promise(async (resolve, reject) => {
             try {
                 let user = await this.findById(uid);
-
+                
                 if (!user) {
                     reject(new Error('Usuario no encontrado para actualizar'));
                 } else {
                     // Actualizar el usuario con los nuevos valores y mantener el ID original                    
-                    user = { ...user, ...newValue, id: uid };
+                    user = { ...user, ...newValue, _id: uid };
     
                     // Recuperar el arreglo de usuarios
                     const users = await this.findAll();
     
                     // Encontrar el índice del usuario en el arreglo
-                    const userIndex = users.findIndex(p => p.id === uid);
+                    const userIndex = users.findIndex(u => u._id === uid);
     
                     // Crear un nuevo array con el usuario actualizado usando splice
                     users.splice(userIndex, 1, user);
@@ -144,12 +131,12 @@ export class UsersFS {
                     const users = await this.findAll();
     
                     // Filtrar los usuarios para excluir el usuario a eliminar
-                    const usersNew = users.filter(prod => prod.id !== uid);
+                    const usersNew = users.filter(user => user._id !== uid);
     
-                    // Sobreescribir el archivo .json con los productos actualizados
+                    // Sobreescribir el archivo .json con los usuarios actualizados
                     await writeDataToFile(this.path, usersNew);
     
-                    // Resolver la promesa indicando que se ha eliminado el producto
+                    // Resolver la promesa indicando que se ha eliminado el usuario
                     resolve(true);
                 }
             } catch (error) {
