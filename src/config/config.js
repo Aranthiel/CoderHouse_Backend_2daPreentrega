@@ -18,6 +18,7 @@ dotenv.config()
 
 export default{
     port: program.opts().port,
+    persistencia : program.opts().db,
     //port: process.env.PORT,
     mongo_uri: process.env.MONGO_URI,
     ghithub_client_id: process.env.GITHUB_CLIENT_ID,

@@ -15,13 +15,13 @@ import {
 const viewsRouter = Router();
 
 //viewsRouter.get("*",renderError);
-viewsRouter.get('/home', renderHome ); 
-viewsRouter.get ('/login', renderLogin )
-viewsRouter.get ('/signup', renderSignup );
+viewsRouter.get('/home', renderHome ); //listo
+viewsRouter.get ('/login', renderLogin ) //listo
+viewsRouter.get ('/signup', renderSignup ); //listo
 viewsRouter.get('/chat', renderChat ); 
 viewsRouter.get('/realtimeproducts', renderRealTimeProducts); 
-viewsRouter.get('/carts', renderCartDetail); 
-viewsRouter.get('/productsFS', renderProductDetail );
+viewsRouter.get('/cart/:cid', renderCartDetail); 
+viewsRouter.get('/product/:pid', renderProductDetail );
 
 
 export default viewsRouter;

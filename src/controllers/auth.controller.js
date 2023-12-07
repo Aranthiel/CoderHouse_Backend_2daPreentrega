@@ -56,17 +56,18 @@ async function userLocalLogin(req, res){
 
         // Crear una copia del usuario sin la contraseña
         const userWithoutPassword = {
+            _id:user._id,
             first_name: user.first_name,
             last_name: user.last_name,
             email: user.email
         };
 
         // Guardar la información del usuario sin la contraseña en la sesión
-        
-        req.session.first_name = user.first_name; // ya probe con req.session[first_name] y tampoco funciona
-        req.session.last_name = user.last_name;
+        req.session._id = user._id; 
+        req.session.first_name = user.first_name; 
         req.session.full_name = `${user.first_name} ${user.last_name}`;
         req.session.email = user.email;
+        req.session.cart = user.cart
         /*
         // Generar un token JWT con la información del usuario
         const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });

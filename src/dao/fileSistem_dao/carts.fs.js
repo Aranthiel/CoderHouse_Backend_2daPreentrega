@@ -33,6 +33,7 @@ export class CartsFS {
             try {
                 const carts = await this.findAll();
                 const cart = carts.find(cart => cart._id === cid);
+                
                 resolve(cart || null);
             } catch (error) {
                 reject(new Error(`Error al buscar el carrito: ${error.message}`));

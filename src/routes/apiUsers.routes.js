@@ -17,7 +17,7 @@ apiUsersRouter.get('/', getAllUsers);
 //endpopint GET para obtener un UserO POR SU ID
 apiUsersRouter.get('/:userId', getUserById); 
 
-/* ¿deberia crear la rura para getUserByEmail? */
+/* ¿deberia crear la ruta para getUserByEmail? */
 
 //Endpoint POST para APGREGAR UserO
 apiUsersRouter.post('/', validateUserCreation, addUser ); 

@@ -24,5 +24,35 @@
         "quantity": 6
       }
     ]
+  },
+  {
+    "_id": 4,
+    "products": {
+      "products": [
+        {
+          "productoId": 2,
+          "quantity": 10
+        },
+        {
+          "productoId": 1,
+          "quantity": 6
+        }
+      ]
+    }
+  },
+  {
+    "_id": 5,
+    "products": {
+      "products": [
+        {
+          "productoId": 2,
+          "quantity": 10
+        },
+        {
+          "productoId": 1,
+          "quantity": 6
+        }
+      ]
+    }
   }
 ]

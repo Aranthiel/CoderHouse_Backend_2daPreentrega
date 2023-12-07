@@ -17,8 +17,7 @@ const cartSchema = new Schema({
                 min: 1, // Validación para que la cantidad sea al menos 1
             },            
         },
-    ],
-    _id:false,
+    ]
 });
 
 cartSchema.plugin(mongoosePaginate);

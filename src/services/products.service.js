@@ -23,6 +23,7 @@ class ProductsService {
         console.log('ejecutando getProductById en products.service.js')
         try {
             const product = await productsPersistence.findById(pid); 
+            console.log('typeof(product)', typeof(product))
             
             if(!product){
                 //return `ERROR:NOT FOUND. El producto ${productId} NO se encuentra en el listado de productos, por favor ingrese un producto válido`;

@@ -26,7 +26,8 @@
     "last_name": "Apellido4",
     "email": "email4@email.com",
     "password": "$2b$10$Yd4uX7O15ZMGDeAGYHYWNO55vkRzk2vD7mHLw075eudc/n2adv9uG",
-    "_id": 4
+    "_id": 4,
+    "cart": 5
   },
   {
     "first_name": "Nombre6",

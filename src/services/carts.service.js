@@ -26,8 +26,14 @@ class CartsService {
 
     async createCart(products){
         console.log('ejecutando createCart en carts.service.js');
-        const cartProducts = products; 
+        const cartProducts = {
+            products: products.map(product => ({
+                productoId: product.productoId,
+                quantity: product.quantity
+            }))
+        }; 
         try {
+            console.log('llamando al mentodo cartsPersistence.createOne(cartProducts)');
             const response = await cartsPersistence.createOne(cartProducts);
             console.log('Carrito creado con éxito:', response);
             return response;

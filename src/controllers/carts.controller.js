@@ -1,8 +1,10 @@
 import { cartsService } from '../services/carts.service.js';
 import { productService } from '../services/products.service.js'; // al crear un carrito
 import { usersService } from '../services/users.service.js'; //al crear un carrito
+import config from '../config/config.js';
 
 
+const persistencia=config.persistencia
 //funcion intermedia entre router y manager metodo GET para obtener TODOS LOS carritoS
 async function getAllCarts(req, res){
     console.log('ejecutando getAllCarts en carts.controller.js')
@@ -43,6 +45,7 @@ async function associateCartToUser(userId, cartId) {
     console.log('Ejecutando associateCartToUser en carts.controller.js');
     try {
         const updatedUser = await usersService.updateUser(userId, { cart: cartId });
+        console.log('updatedUser', updatedUser)
         return updatedUser;
     } catch (error) {
         throw new Error(`Error al asociar el carrito al usuario: ${error.message}`);
@@ -51,11 +54,13 @@ async function associateCartToUser(userId, cartId) {
 
 async function verifyUser(userId) {
     console.log('Ejecutando verifyUser en carts.controller.js');
-    const isValid = await usersService.getUserById(userId);
+    const isValid = await usersService.getUserById(userId);        
         
         if (isValid) {
+            console.log('usuario verificado OK')
             return true
         } else {
+            console.log('El usuario no existe')
             return false
         }
 }// funciona ok 5/12
@@ -65,16 +70,18 @@ async function verifyProducts(products) {
     console.log('Ejecutando verifyProducts en carts.controller.js');
     const invalidProducts = [];
     const validProducts = [];
+    console.log(`Has seleccionado la presistencia ${persistencia}`)
     
     for (const product of products) {
-        const isValid = await productService.getProductById(product._id);
-        console.log('isValid, product._id',isValid, product._id)
+        const isValid = await productService.getProductById(product.productoId);
+        
 
-        if (isValid) {
+        if(isValid && isValid._id) {
             validProducts.push(product);
         } else {
             invalidProducts.push(product);
         }
+        
     }
     console.log('validProducts',validProducts, 'invalidProducts', invalidProducts)
 
@@ -94,14 +101,17 @@ async function addCart(req, res) {
         //console.log('userExist', userExist)
         if(userExist && existingProducts.validProducts.length>0){
             const carritoCreado = await cartsService.createCart(existingProducts.validProducts);
+            console.log('carritoCreado', carritoCreado)
         
-            if (carritoCreado) {
+            if (carritoCreado && carritoCreado._id) {
                 let responseMessage = `Carrito creado exitosamente y asociado al usuario ${userId}.`;
                 
                 associateCartToUser(userId, carritoCreado._id)
                 if (existingProducts.invalidProducts.length > 0) {
                     responseMessage += ` ${existingProducts.invalidProducts.length} productos no fueron incluidos ya que no existen en la base de datos.`;
                 }
+
+                req.session.cart = carritoCreado._id;
     
                 res.status(200).json({ success: true, message: responseMessage, carritoCreado });
             } else {

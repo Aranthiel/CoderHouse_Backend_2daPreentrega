@@ -17,7 +17,7 @@ function renderProductCard(product) {
 	const productImage = document.createElement('div');
 	productImage.classList.add('product-image');
 	const image = document.createElement('img');
-	image.src = 'https://placehold.co/200/74c1c4/69888a?text=Hello\nWorld'; // Asignar la imagen del producto
+	image.src = product.tumbnail || 'https://placehold.co/200/74c1c4/69888a?text=Hello\nWorld'; // Asignar la imagen del producto
 	productImage.appendChild(image);
 
 	const productInfo = document.createElement('div');
