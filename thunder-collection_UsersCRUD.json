@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "UsersCRUD",
+    "dateExported": "2023-12-06T01:32:21.071Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "47e86e2c-3149-4bdf-a63c-ee215e57652f",
+            "colId": "ef41d6fa-83c0-4c34-bd1e-760bce09861e",
+            "containerId": "",
+            "name": "api/users/{userId}",
+            "url": "http://localhost:8080/api/users/2",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-12-05T19:56:21.241Z",
+            "modified": "2023-12-05T19:56:21.241Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"email1_owo@email.com\",\n  \"password\":\"password1_owo\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0f28b1d7-d2c9-49d2-a25b-00be5a6f4d1c",
+            "colId": "ef41d6fa-83c0-4c34-bd1e-760bce09861e",
+            "containerId": "",
+            "name": "api/users/{userId}",
+            "url": "http://localhost:8080/api/users/4",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-12-05T19:56:28.491Z",
+            "modified": "2023-12-05T19:56:28.491Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"random\":\"prueba random\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c7a1f485-f4ec-4b51-a112-6e583baeb767",
+            "colId": "ef41d6fa-83c0-4c34-bd1e-760bce09861e",
+            "containerId": "",
+            "name": "api/users",
+            "url": "http://localhost:8080/api/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-12-05T19:56:37.410Z",
+            "modified": "2023-12-06T00:53:40.501Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\":\"Nombre8\",\n  \"last_name\":\"Apellido8\",\n  \"email\":\"email8@email.com\",\n  \"password\":\"password8\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1aacf80c-fa27-446e-8202-17978cb5a11f",
+            "colId": "ef41d6fa-83c0-4c34-bd1e-760bce09861e",
+            "containerId": "",
+            "name": "api/users/{userId}",
+            "url": "http://localhost:8080/api/users/3",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-12-05T19:56:43.666Z",
+            "modified": "2023-12-05T19:56:43.666Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f8570822-5235-4c69-8c83-d7396f1cca6b",
+            "colId": "ef41d6fa-83c0-4c34-bd1e-760bce09861e",
+            "containerId": "",
+            "name": "api/users",
+            "url": "http://localhost:8080/api/users",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-12-05T19:56:49.243Z",
+            "modified": "2023-12-05T19:56:49.243Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

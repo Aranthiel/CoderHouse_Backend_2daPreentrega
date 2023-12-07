@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/style.css"><title>WebSocket</title>
+</head>
+<body>
+    <header>
+        <navbar id="menu"> 
+            <div id="logo">
+                <a href="{{baseURL}}/home"><img src="./assets/logoipsum-284.svg" alt="Logo PLaceHolder"></a>
+            </div>
+            <div id="menuOptions">
+                <ul>
+                    <li class="menuLi"><a href="{{baseURL}}/home"> Home</a></li>                    
+                    <li class="menuLi"><a href="{{baseURL}}/chat"> Chat</a></li>                    
+                    <li class="menuLi"><a href="{{baseURL}}/carts/:cid"> Mi Carrito</a></li>
+                    <li class="menuLi"><a href="{{baseURL}}/signup"> Registrate</a></li>
+                    <li class="menuLi"><a href="{{baseURL}}/login"> Ingresar</a></li>
+                    <li class="menuLi"><a href="{{baseURL}}/realtimeproducts"> RealTimeProducts</a></li>
+                    <li class="menuLi"><a href="{{baseURL}}/products/:pid"> Detalle Producto</a></li>
+                    
+                </ul>
+            </div>
+            <div id="cart">
+                <img src=".\assets\basket-fill.svg" alt="carrito placeholder">
+                <span id="cartItemsCount"></span>
+            </div>
+            <div id="profile">
+                <img src=".\assets\person-fill.svg" alt="profile placeholder">
+            </div>
+        </navbar>
+    </header>
+    <h1> </h1>
+    {{{body}}}
+</body>
+</html>

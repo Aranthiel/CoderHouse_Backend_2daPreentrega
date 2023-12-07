@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CartsCRUD",
+    "dateExported": "2023-12-06T01:31:44.177Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4c5b9ab8-4f23-45bf-83a7-8443d9ddeb7a",
+            "colId": "02a18086-a411-48d9-9d0d-f6f01bf53173",
+            "containerId": "",
+            "name": "/api/carts/{cartId}",
+            "url": "http://localhost:8080/api/carts/1",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-12-05T19:54:49.282Z",
+            "modified": "2023-12-06T01:29:23.540Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"products\": [\n    {\n      \"id\": 1,\n      \"quantity\": 15\n    },\n    {\n      \"id\": 15,\n      \"quantity\": 6\n    },\n    {\n      \"id\": 4,\n      \"quantity\": 3\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a9fdb080-ccba-4aba-acf2-b1d3b319ea29",
+            "colId": "02a18086-a411-48d9-9d0d-f6f01bf53173",
+            "containerId": "",
+            "name": "api/carts/{userId}",
+            "url": "http://localhost:8080/api/carts/6",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-05T19:55:16.907Z",
+            "modified": "2023-12-06T01:17:58.452Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"products\": [\n    {\n      \"_id\":2,\n      \"quantity\": 10\n    },\n    {\n      \"_id\": 5,\n      \"quantity\": 5\n    },\n    {\n      \"_id\": 1,\n      \"quantity\": 6\n    }\n  ]\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8c75b4d4-90ed-4de6-a64f-d011cdfec990",
+            "colId": "02a18086-a411-48d9-9d0d-f6f01bf53173",
+            "containerId": "",
+            "name": "api/carts/{cartId}",
+            "url": "http://localhost:8080/api/carts/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-12-05T19:58:11.587Z",
+            "modified": "2023-12-06T01:18:39.146Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "901418e4-4bee-4cec-91d8-77683e4f1053",
+            "colId": "02a18086-a411-48d9-9d0d-f6f01bf53173",
+            "containerId": "",
+            "name": "api/carts/",
+            "url": "http://localhost:8080/api/carts/",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-12-05T19:58:59.138Z",
+            "modified": "2023-12-05T19:58:59.138Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f5f4c9eb-031f-4592-abe1-535890ce0b14",
+            "colId": "02a18086-a411-48d9-9d0d-f6f01bf53173",
+            "containerId": "",
+            "name": "api/carts/{cartId}",
+            "url": "http://localhost:8080/api/carts/2",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-12-05T20:01:29.315Z",
+            "modified": "2023-12-06T01:22:45.564Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"products\": [\n    {\n      \"_id\": 1,\n      \"quantity\": 15\n    },\n    {\n      \"_id\": 15,\n      \"quantity\": 6\n    },\n    {\n      \"_id\": 4,\n      \"quantity\": 3\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

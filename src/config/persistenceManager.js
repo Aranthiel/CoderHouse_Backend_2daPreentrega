@@ -8,7 +8,12 @@ import {ProductsFS} from '../dao/fileSistem_dao/products.fs.js'
 import {UsersFS} from '../dao/fileSistem_dao/users.fs.js'
 import {CartsFS} from '../dao/fileSistem_dao/carts.fs.js';
 
+//session
+import { fileSessionConfig, mongoSessionConfig } from  './sessionConfig.js';
+
 const persistencia = program.opts().db;
+
+let mySession; 
 
 
 let productsPersistence;
@@ -19,12 +24,14 @@ if(persistencia==='mongo'){
     productsPersistence = new ProductsMongo();
     usersPersistence = new UsersMongo();
     cartsPersistence = new CartsMongo();
+    mySession = mongoSessionConfig;
 } else {
     console.log(`Has seleccionado la presistencia en FileSystem. si no existen los archivos .json a veces da un error y no los crea, se soliciona si los creas manualmente
     `)
     productsPersistence = new ProductsFS('productos.json');
     usersPersistence = new UsersFS('usuarios.json');
     cartsPersistence = new CartsFS('carritos.json');
+    mySession = fileSessionConfig;
 }
 console.log(
     'productsPersistence', productsPersistence, 
@@ -35,6 +42,7 @@ console.log(
 export {
     productsPersistence,
     usersPersistence,
-    cartsPersistence
+    cartsPersistence,
+    mySession
 }
 

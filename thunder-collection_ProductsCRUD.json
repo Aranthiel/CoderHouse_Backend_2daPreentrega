@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ProductsCRUD",
+    "dateExported": "2023-12-06T01:32:14.407Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c1edc622-84e2-4d6e-b62b-32ce55c86109",
+            "colId": "bb1b59ad-9163-4883-b071-ee3e29d81f88",
+            "containerId": "",
+            "name": "api/products/{productId}",
+            "url": "http://localhost:8080/api/products/5",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-12-05T19:55:35.097Z",
+            "modified": "2023-12-05T19:55:35.097Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c265d682-56a9-4c17-b68d-f895d24bd017",
+            "colId": "bb1b59ad-9163-4883-b071-ee3e29d81f88",
+            "containerId": "",
+            "name": "api/products/{productId}",
+            "url": "http://localhost:8080/api/products/3",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-12-05T19:55:43.602Z",
+            "modified": "2023-12-05T19:55:43.602Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \n  \"title\": \"producto FS actualizado 5/12\",\n    \"stock\": 16\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d14b4825-7b54-4272-b204-4f05d6551a65",
+            "colId": "bb1b59ad-9163-4883-b071-ee3e29d81f88",
+            "containerId": "",
+            "name": "api/products/",
+            "url": "http://localhost:8080/api/products",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-12-05T19:55:52.627Z",
+            "modified": "2023-12-05T19:55:52.627Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \"title\": \"producto FS 6 5/12\",\n    \"code\": \"pfs006\",\n    \"price\": 126,\n    \"status\": true,\n    \"stock\": 24,\n    \"category\": \"prueba\"}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "80a79ce1-960c-41b6-bc4f-e5e5f719ec48",
+            "colId": "bb1b59ad-9163-4883-b071-ee3e29d81f88",
+            "containerId": "",
+            "name": "api/products/{productId}",
+            "url": "http://localhost:8080/api/products/3",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-12-05T19:56:02.491Z",
+            "modified": "2023-12-05T19:56:02.491Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "086d51e1-479f-45aa-b555-01a4c0a27ffa",
+            "colId": "bb1b59ad-9163-4883-b071-ee3e29d81f88",
+            "containerId": "",
+            "name": "api/products",
+            "url": "http://localhost:8080/api/products",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-12-05T19:56:07.123Z",
+            "modified": "2023-12-05T19:56:07.123Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

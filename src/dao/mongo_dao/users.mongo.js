@@ -5,5 +5,9 @@ import { BasicMongo} from './basic.mongo.js';
     constructor(){
         super(userModel);
     }
+
+    findByEmail( email ){
+        return userModel.findOne({email});
+    }
 }
 
