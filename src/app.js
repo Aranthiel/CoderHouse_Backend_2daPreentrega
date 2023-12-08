@@ -23,7 +23,7 @@ import path from 'path';
 import "./config/dbConfig.js";
 
 //socket.io 
-//import { initializeSocket } from "./socket/socketServer.js";
+import { initializeSocket } from "./socket/socketServer.js";
 
 //routes
 import apiRouter from './routes/api.routes.js';
@@ -37,6 +37,10 @@ const PORT=config.port;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public'));
+
+//passport
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 //handlebars
 app.engine("handlebars", engine());
@@ -61,3 +65,5 @@ const httpServer = app.listen(PORT, ()=>(
     console.log(`Pruebas server express. Servidor escuchando en http://localhost:${PORT}/home `)
 ));
 
+//const socketServer = new Server(httpServer);
+initializeSocket(httpServer);  

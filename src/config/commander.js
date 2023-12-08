@@ -6,6 +6,5 @@ program
     .parse();
 
 const options = program.opts();
-console.log('selected commander options', options);
 
 export default program;

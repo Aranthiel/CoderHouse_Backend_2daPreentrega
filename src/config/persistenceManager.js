@@ -29,14 +29,10 @@ if(persistencia==='mongo'){
     usersPersistence = new UsersFS('usuarios.json');
     cartsPersistence = new CartsFS('carritos.json');
     mySession = fileSessionConfig;
-}
-console.log(`Has seleccionado la presistencia en ${persistencia}. si no existen los archivos .json a veces da un error y no los crea, se soliciona si los creas manualmente
+    console.log(`Has seleccionado la presistencia en ${persistencia}. si no existen los archivos .json a veces da un error y no los crea, se soliciona si los creas manualmente
     `)
-console.log(
-    'productsPersistence', productsPersistence, 
-    'usersPersistence', usersPersistence, 
-    'cartsPersistence', cartsPersistence
-    )
+}
+
 
 export {
     productsPersistence,
