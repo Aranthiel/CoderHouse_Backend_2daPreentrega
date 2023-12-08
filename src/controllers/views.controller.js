@@ -1,4 +1,6 @@
-import config from '../config/config.js'
+import config from '../config/config.js';
+import {productsPersistence} from '../config/persistenceManager.js';
+
 
 const baseURL= config.baseURL;
 
@@ -46,7 +48,7 @@ async function renderRealTimeProducts(req,res){
     const limit = req.query.limit ? parseInt(req.query.limit) : undefined;   
     
     try {
-        const products = await productsManagerMongoose.mongooseGetProducts(+limit);
+        const products = await productsPersistence.findAllAndLimit(limit);
         if (!products.length){
             res.status(404).json({ success: false, message: 'No se encontraron productos' , data:[]})
         } else {
