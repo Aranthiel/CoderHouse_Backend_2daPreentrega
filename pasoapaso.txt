@@ -10,7 +10,7 @@ npm i express-session
 npm i session-file-store
 npm i connect-mongo
 npm i express bcrypt
-npm i passport + estaretegia (Google, Github, Facebook)
+npm i passport 
 npm install passport-local
 npm install passport-github2
 npm i commander

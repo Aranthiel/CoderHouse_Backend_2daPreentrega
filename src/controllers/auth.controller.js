@@ -3,7 +3,7 @@ import { hashData, compareData } from "../utils.js";
 import config from '../config/config.js';
 //import import jwt from 'jsonwebtoken';
 
-//import passport from "passport";
+import passport from "passport";
 
 const baseURL = config.baseURL;
 
