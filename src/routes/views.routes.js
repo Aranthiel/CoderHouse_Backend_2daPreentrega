@@ -6,8 +6,7 @@ import {
     renderChat,
     renderRealTimeProducts,
     renderCartDetail,
-    renderProductDetail,
-    renderError,
+    renderProductDetail
 } from '../controllers/views.controller.js'
 
 

@@ -16,7 +16,7 @@
                 <ul>
                     <li class="menuLi"><a href="{{baseURL}}/home"> Home</a></li>                    
                     <li class="menuLi"><a href="{{baseURL}}/chat"> Chat</a></li>                    
-                    <li class="menuLi"><a href="{{baseURL}}/carts/:cid"> Mi Carrito</a></li>
+                    <li class="menuLi"><a href="{{baseURL}}/cart/{{cart}}"> Mi Carrito</a></li>
                     <li class="menuLi"><a href="{{baseURL}}/signup"> Registrate</a></li>
                     <li class="menuLi"><a href="{{baseURL}}/login"> Ingresar</a></li>
                     <li class="menuLi"><a href="{{baseURL}}/realtimeproducts"> RealTimeProducts</a></li>
@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <div id="cart">
-                <a href="{{baseURL}}/carts/:cid">
+                <a href="{{baseURL}}/cart/{{cart}}">
                     <img src=".\assets\basket-fill.svg" alt="carrito placeholder">
                     <span id="cartItemsCount"></span>
                 </a>

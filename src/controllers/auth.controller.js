@@ -68,6 +68,14 @@ async function userLocalLogin(req, res){
         req.session.full_name = `${user.first_name} ${user.last_name}`;
         req.session.email = user.email;
         req.session.cart = user.cart
+
+        // Establecer la cookie con la información del usuario
+        res.cookie('_id', user._id, { maxAge: 900000, httpOnly: true });
+        res.cookie('first_name', user.first_name, { maxAge: 900000, httpOnly: true });
+        res.cookie('last_name', user.last_name, { maxAge: 900000, httpOnly: true });
+        res.cookie('email', user.email, { maxAge: 900000, httpOnly: true });
+        res.cookie('cart', user.cart, { maxAge: 900000, httpOnly: true });
+        
         /*
         // Generar un token JWT con la información del usuario
         const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });

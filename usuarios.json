@@ -4,7 +4,8 @@
     "last_name": "Apellido1_",
     "email": "email1_@email.com",
     "password": "$2b$10$iVukGufWclh3bpyZrQTwlec1xDTZzlppfX.1wN/VS15H3Tkd4ctGe",
-    "_id": 1
+    "_id": 1,
+    "cart": 3
   },
   {
     "first_name": "Nombre2",
@@ -12,14 +13,15 @@
     "email": "email2@email.com",
     "password": "$2b$10$uVHBqehYDIyqrliMAVU2lOj3vY/Ef0E0acx7dp2IaJj./hB3wEr2W",
     "_id": 2,
-    "cart": 1
+    "cart": 2
   },
   {
     "first_name": "Nombre3",
     "last_name": "Apellido3",
     "email": "email3@email.com",
     "password": "$2b$10$nOhmGeZk97Sf4QqGmZwU/end/t5gX.nzy.KrPAMzxPC7N3U.X/EAi",
-    "_id": 3
+    "_id": 3,
+    "cart": 4
   },
   {
     "first_name": "Nombre4",
@@ -27,7 +29,7 @@
     "email": "email4@email.com",
     "password": "$2b$10$Yd4uX7O15ZMGDeAGYHYWNO55vkRzk2vD7mHLw075eudc/n2adv9uG",
     "_id": 4,
-    "cart": 5
+    "cart": 1
   },
   {
     "first_name": "Nombre6",
@@ -35,7 +37,7 @@
     "email": "email6@email.com",
     "password": "$2b$10$WqqYcgwYd7vn5Id81XNquuuqWoTYe/M8joZsX7pqSoUvXvdn1IR5q",
     "_id": 5,
-    "cart": 2
+    "cart": 5
   },
   {
     "first_name": "Nombre6",
@@ -43,48 +45,54 @@
     "email": "email6_@email.com",
     "password": "$2b$10$uByMsUneQAHTKIcSOeE16OOUhsUiV7SAIsre3ZsnNIoTSNB3ZoX1.",
     "_id": 6,
-    "cart": 3
+    "cart": 6
   },
   {
     "first_name": "Nombre7",
     "last_name": "Apellido7",
     "email": "email7@email.com",
     "password": "$2b$10$n6i9HohDKkqXqTchB//B4OJq/Kp.21.K76zU1IZ8hfbmR/P.kQlbC",
-    "_id": 7
+    "_id": 7,
+    "cart": 7
   },
   {
     "first_name": "Nombre8",
     "last_name": "Apellido8",
     "email": "email8@email.com",
     "password": "$2b$10$tk4pawE4J79oNcmtHgu/EusuAtXEGnIoiSJ0iDQAHazPXFs77/waS",
-    "_id": 8
+    "_id": 8,
+    "cart": 8
   },
   {
     "first_name": "Nombre",
     "last_name": "Apellido",
     "email": "correo@ejemplo.com",
     "password": "$2b$10$3KkjoW2k48wQp39w7lU7r.T.4lvikm6vIdOSV2.jbtjhp47RlfV2i",
-    "_id": 9
+    "_id": 9,
+    "cart": 9
   },
   {
     "first_name": "NombreAuth",
     "last_name": "ApellidoAuth",
     "email": "correoAuth@ejemplo.com",
     "password": "$2b$10$7xmv1yzKMyukeCtT1PMDteBDGyM4asVIQ2JRWxweAYXMrpnu1AUNu",
-    "_id": 10
+    "_id": 10,
+    "cart": 10
   },
   {
     "first_name": "usuario",
     "last_name": "prueba  ",
     "email": "mail@mail.com",
     "password": "$2b$10$tEAPhRxe7bdwbRNxZWow0eXf2N9XZE9H8XIAUBfq06LZ1mJ.RoW1e",
-    "_id": 11
+    "_id": 11,
+    "cart": 11
   },
   {
     "first_name": "UsuarioWeb",
     "last_name": "PruebaWeb",
     "email": "emailweb@email.com",
     "password": "$2b$10$eVyab/hjT1QXh5MPat7qmOftWgkRsEdpQD9PmO8Cy6ZDldtjJ4/RS",
-    "_id": 12
+    "_id": 12,
+    "cart": 12
   }
 ]

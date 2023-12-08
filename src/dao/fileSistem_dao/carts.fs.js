@@ -47,7 +47,7 @@ export class CartsFS {
         return new Promise(async (resolve, reject) => {
             try {
                 const carts = await this.findAll();
-                const newCart = { _id: "", products: obj }
+                const newCart = { _id: "", products: obj.products }
                 
                 if (carts.length > 0) {
                     newCart._id = carts[carts.length - 1]._id + 1;
