@@ -2,7 +2,7 @@ import passport from "passport";
 import {usersPersistence} from '../config/persistenceManager.js';
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GitHubStrategy } from "passport-github2";
-import { hashData, compareData } from "./utils.js";
+import { hashData, compareData } from "../utils.js";
 import config from "./config.js";
 
 //https://www.npmjs.com/package/passport
@@ -12,16 +12,17 @@ passport.use(
     "signup",
     new LocalStrategy(
         {
-            usernameField: "email",
-            passReqToCallback: true,
+            usernameField: "email", // indica que en lugar de hcer el loguin con nombre de usuario, utiliza mail
+            passReqToCallback: true, // pasa la informacion de req al callback
         },
         async (req, email, password, done) => {
             try {
                 console.log('ejecutando passport.use signup desde passport.js')
+                //vrtofoca si ya existe un usuario con el email 
                 const allReadyExist = await usersPersistence.findByEmail(email);
                 if (allReadyExist) {
-                    console.log('allReadyExist en passport.js')
-                    return done(null, false);
+                    console.log('user allReadyExist en passport.js')
+                    return done(null, false); //no hubo error, pero no devuelve usuario
                 }
                 const hashedPassword = await hashData(password);
                 const newUser = await usersPersistence.createOne({
@@ -29,7 +30,7 @@ passport.use(
                     password: hashedPassword,
                 });
                 
-                done(null, newUser);
+                done(null, newUser); //
             } catch (error) {
             done(error);
             }
@@ -47,13 +48,11 @@ passport.use(
             try {
                 console.log('ejecutando passport.use login desde passport.js')
                 const userByEmail = await usersPersistence.findByEmail(email);
-                if (!userByEmail) {
-                    console.log('!userByEmail en passport.js')
-                return done(null, false);
+                if (!userByEmail) {                    
+                    return done(null, false);
                 }
                 const isValid = await compareData(password, userByEmail.password);
-                if (!isValid) {
-                    console.log('!isValid en passport.js')
+                if (!isValid) {                    
                 return done(null, false);
                 }
                 

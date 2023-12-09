@@ -5,10 +5,48 @@
     LastName: <input type="text" name="last_name" id="last_name">
     Email: <input type="email" name="email" id="email">
     Password: <input type="password" name="password" id="password">
-    <input type="submit" value="SIGNUP">
+    <input type="submit" value="Local Signup">
 </form>
 
+<button onclick="sendToPassportLocal()">Passport Local Signup</button> <!-- Botón para Passport Local -->
 <button onclick="location.href='/api/users/auth/github'">GITHUB</button>
 
-<p>Si ya estás registrado, <a href="/">logueate</a></p>
+<p>Si ya estás registrado, <a href="/">LOGUEATE</a></p>
+<script>
+    function sendToPassportLocal() {
+        var first_name = document.getElementById('first_name').value;
+        var last_name = document.getElementById('last_name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
+        // Construir el objeto con los datos del formulario
+        var formData = {
+            first_name:first_name,
+            last_name:last_name,
+            email: email,
+            password: password
+        };
+
+        // Enviar los datos al endpoint de Passport Local utilizando Fetch API con método POST
+        fetch('/api/auth/passportsignup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            // Manejar la respuesta del servidor aquí
+            if (response.ok) {
+                console.log('PASSPORT LOCAL SIGNUP OK');
+                console.log(response)
+            } else {
+                // Manejar errores de autenticación u otras respuestas no exitosas
+                console.error('Error en la autenticación');
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
+    }
+</script>

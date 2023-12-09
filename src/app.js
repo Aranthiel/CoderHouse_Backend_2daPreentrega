@@ -11,8 +11,8 @@ import session from "express-session";
 import {mySession}from './config/persistenceManager.js';
 
 //passport
-//import passport from 'passport';
-//import './passport.js';
+import passport from 'passport';
+import './config/passport.js';
 
 //handlebars'
 import { engine } from "express-handlebars";
@@ -38,9 +38,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public'));
 
-//passport
-//app.use(passport.initialize());
-//app.use(passport.session());
+// session
+//SIEMPRE tiene que estar declarado antes de routes para que funcione correctamente!
+app.use(session(mySession));
+
+//passport 
+//SIEMPRE tiene que estar declarado desppues de session para que funcione correctamente!
+app.use(passport.initialize());
+app.use(passport.session());
 
 //handlebars
 app.engine("handlebars", engine());
@@ -50,9 +55,7 @@ app.set("view engine", "handlebars");
 // Parsear las cookies
 app.use(cookieParser());
 
-// session
-//SIEMPRE tiene que estar declarado antes de routes para que funcione correctamente!
-app.use(session(mySession));
+
 
 // routes
 app.use("/api", apiRouter);

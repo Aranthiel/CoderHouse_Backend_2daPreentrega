@@ -13,7 +13,6 @@ import {
 
 const viewsRouter = Router();
 
-//viewsRouter.get("*",renderError);
 viewsRouter.get('/home', renderHome ); //listo
 viewsRouter.get ('/login', renderLogin ) //listo
 viewsRouter.get ('/signup', renderSignup ); //listo

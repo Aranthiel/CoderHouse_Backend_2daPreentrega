@@ -1,15 +1,19 @@
 import {Router} from 'express';
 import {
         userLocalSignup,
-        userLocalLogin,
-        //passportLocalAuthSignup,
-        //passportLocalAuthLogin,
+        userLocalLogin
+} from '../controllers/localauth.controller.js'
+import {
+        passportLocalAuthSignup,
+        passportLocalAuthLogin,
         //passportGithubAuth, 
         //passportGithubCallback 
-} from '../controllers/auth.controller.js'
+} from '../controllers/passportauth.controller.js'
+
 
 
 const apiUsersAuth = Router();
+
 
 //Endpoint POST para REGISTRAR un usuario de forma local
 apiUsersAuth.post('/signup', userLocalSignup ); 
@@ -24,9 +28,10 @@ apiUsersAuth.get("/githubCallback", passportGithubAuth, passportGithubCallback);
 */
 
 //passport-local
-/*
-apiUsersAuth.post('/passportlogin', passportLocalAuthLogin);
 apiUsersAuth.post('/passportsignup', passportLocalAuthSignup);
-*/
+apiUsersAuth.post('/passportlogin', passportLocalAuthLogin);
+
+
+
 
 export default apiUsersAuth;

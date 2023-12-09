@@ -3,8 +3,6 @@ import { hashData, compareData } from "../utils.js";
 import config from '../config/config.js';
 //import import jwt from 'jsonwebtoken';
 
-import passport from "passport";
-
 const baseURL = config.baseURL;
 
 async function userLocalSignup(req, res) {
@@ -45,7 +43,7 @@ async function userLocalLogin(req, res){
         // Obtener el usuario por su correo electrónico
         const user = await usersService.getUserByEmail(email);
         if (!user) {
-            return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+            return res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
         }
 
         // Comparar la contraseña ingresada con la almacenada en la base de datos
@@ -76,89 +74,20 @@ async function userLocalLogin(req, res){
         res.cookie('email', user.email, { maxAge: 900000, httpOnly: true });
         res.cookie('cart', user.cart, { maxAge: 900000, httpOnly: true });
         
-        /*
+        
         // Generar un token JWT con la información del usuario
-        const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });
+        //const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });
 
-        */
+        
 
-        res.redirect(`${baseURL}/home`);
+        res.redirect(`${baseURL}/chat`);
         //return res.status(200).json({ success: true, message: 'Inicio de sesión exitoso', userWithoutPassword });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Error al iniciar sesión', error: error.message });
     }
 };
 
-/*
-async function passportLocalAuthSignup(req, res, next) { //el usuario se crea, pero no se hace la redireccion
-    console.log('ejecutando passportLocalAuthSignup desde users.controller.js') 
-    const {email, password} = req.body
-    passport.authenticate("signup")(req, res, async (err) => {
-        if (err) {
-            // Maneja errores si ocurren durante la autenticación
-            console.log(err);
-            return res.redirect("/error"); // Redirige a la página de error en caso de error
-        }
-
-        // Accede a la información del usuario autenticado
-        const userByEmail = req.user;
-        console.log('userByEmail en passportLocalAuthSignup', userByEmail);
-        
-        req.session.email = userByEmail.email;
-        req.session.first_name = userByEmail.first_name;
-        const isValid = await compareData(password, userByEmail.password);
-        if (email === "adminCoder@coder.com" && isValid) {
-            req.session.isAdmin = true;
-        }
-
-        console.log('redireccionando a home desde passportLocalAuthSignup en users.controller.js');
-        res.redirect("/"); 
-    });
-};
-
-async function passportLocalAuthLogin(req, res, next) {
-    console.log('ejecutando passportLocalAuthLogin desde users.controller.js') 
-    const {email, password} = req.body
-    passport.authenticate("login")(req, res, async (err) => {
-        if (err) {
-            // Maneja errores si ocurren durante la autenticación
-            console.log(err);
-            return res.redirect("/error"); // Redirige a la página de error en caso de error
-        }
-
-        // Accede a la información del usuario autenticado
-        const userByEmail = req.user;
-        console.log('userByEmail en passportLocalAuthLogin', userByEmail);
-        
-        req.session.email = userByEmail.email;
-        req.session.first_name = userByEmail.first_name;
-        const isValid = await compareData(password, userByEmail.password);
-        if (email === "adminCoder@coder.com" && isValid) {
-            req.session.isAdmin = true;
-        }
-
-        console.log('redireccionando a productsFS desde passportLocalAuthLogin en users.controller.js');
-        res.redirect("/productsFS"); 
-    });
-}
-
-
-const passportGithubAuth = passport.authenticate("github", { scope: ["user:email"] });
-
-
-const passportGithubCallback = (req, res, next) => {
-    console.log('ejecutando passportGithubCallback en users.controller.js')
-    return res.redirect("/productsFS");
-    };
-*/
-
-
-
 export {
     userLocalSignup,
     userLocalLogin,
-    //passportLocalAuthSignup,
-    //passportLocalAuthLogin,
-    //passportGithubAuth, 
-    //passportGithubCallback 
     }

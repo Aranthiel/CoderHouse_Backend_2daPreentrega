@@ -7,7 +7,7 @@ import { __dirname } from '../utils.js';
 const fileStore = FileStore(session);
 
 export const fileSessionConfig = {
-    secret: 'SESSIONSECRETKEY',
+    secret: config.filestore_session_secret,
     cookie: {
         maxAge: 60 * 60 * 1000,
     },
@@ -21,7 +21,7 @@ export const mongoSessionConfig = {
     store: new mongoStore({
         mongoUrl: config.mongo_uri 
     }),
-    secret: 'mongosessionsecretkey',
+    secret: config.mongo_session_secret,
     cookie: {
         maxAge: 30000,
     },
