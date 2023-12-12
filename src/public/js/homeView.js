@@ -107,44 +107,38 @@ function handleDetailsClick(event) {
 }
 
 async function handleAddToCartClick(event) {
-    const productId = event.target.dataset.productId;
-    console.log(`Se hizo clic en Agregar al carrito del producto con ID ${productId}`);
+    const productId = event.target.dataset.productId;   
+    const currentCartId = document.getElementById('cartId').dataset.cartid;
 
-    const cartId = obtenerCartId(); // Función para obtener el cartId desde la cookie
-    
-    if (cartId) {
-        try {
-            // Obtener el carrito actual antes de actualizarlo
-            const cartResponse = await fetch(`/api/carts/${cartId}`);
-            const cartData = await cartResponse.json();
-            
-            const existingProducts = cartData.products || [];
-            
-            // Verificar si el producto ya está en el carrito
-            const existingProductIndex = existingProducts.findIndex(product => product.productId === productId);
+    console.log(`Se hizo clic en Agregar al carrito ${currentCartId} el producto con ID ${productId}`);
 
-            if (existingProductIndex !== -1) {
-                // Si el producto ya está en el carrito, actualizar la cantidad
-                existingProducts[existingProductIndex].quantity += 1;
-            } else {
-                // Si el producto no está en el carrito, agregarlo
-                existingProducts.push({ productId: productId, quantity: 1 });
-            }
+    const updateCartUrl = `/api/carts/${currentCartId}`;
 
-            // Realizar la actualización del carrito con los productos actualizados
-            const addToCartResponse = await fetch(`/api/carts/${cartId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ products: existingProducts })
-            });
-            // Puedes manejar la respuesta de la API aquí según sea necesario
-        } catch (error) {
-            console.error('Error al actualizar el carrito:', error);
+    try {
+        const response = await fetch(updateCartUrl, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                products: [
+                    {
+                        productoId: productId,
+                        quantity: 1
+                    }
+                ]
+            })
+        });
+
+        if (response.ok) {
+            // El producto se agregó al carrito exitosamente
+            console.log('Producto agregado al carrito exitosamente.');
+            // Puedes hacer algo aquí después de agregar el producto al carrito si es necesario
+        } else {
+            console.error('Error al agregar el producto al carrito:', response.status, response.statusText);
         }
-    } else {
-        console.error('No se encontró el cartId en la cookie');
-        // Manejar la situación donde no se encuentra el cartId en la cookie
+    } catch (error) {
+        console.error('Error en la solicitud fetch:', error);
     }
 }
+

@@ -74,10 +74,9 @@ async function userLocalLogin(req, res){
         res.cookie('first_name', user.first_name, { maxAge: 900000, httpOnly: true });
         res.cookie('last_name', user.last_name, { maxAge: 900000, httpOnly: true });
         res.cookie('email', user.email, { maxAge: 900000, httpOnly: true });
-        res.cookie('cart', user.cart, { maxAge: 900000, httpOnly: true });
+        res.cookie('cart', user.cart, { maxAge: 900000, httpOnly: false });
         
         console.log('req.session en userLocalLogin', req.session)
-        console.log('res.cookie en userLocalLogin', res.cookie)
         
         // Generar un token JWT con la información del usuario
         //const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });
