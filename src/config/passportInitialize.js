@@ -1,5 +1,5 @@
 import passport from "passport";
-import {usersPersistence} from '../config/persistenceManager.js';
+import {usersService} from '../services/users.service.js';
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { hashData, compareData } from "../utils.js";
@@ -9,28 +9,28 @@ import config from "./config.js";
 
 // passport-local
 passport.use(
-    "signup",
+    "plocalsignup",
     new LocalStrategy(
         {
             usernameField: "email", // indica que en lugar de hcer el loguin con nombre de usuario, utiliza mail
             passReqToCallback: true, // pasa la informacion de req al callback
         },
         async (req, email, password, done) => {
+            const { first_name, last_name } = req.body;
             try {
-                console.log('ejecutando passport.use signup desde passport.js')
-                //vrtofoca si ya existe un usuario con el email 
-                const allReadyExist = await usersPersistence.findByEmail(email);
+                //verifica si ya existe un usuario con el email 
+                const allReadyExist = await usersService.getUserByEmail(email);
                 if (allReadyExist) {
-                    console.log('user allReadyExist en passport.js')
                     return done(null, false); //no hubo error, pero no devuelve usuario
                 }
-                const hashedPassword = await hashData(password);
-                const newUser = await usersPersistence.createOne({
-                    ...req.body,
-                    password: hashedPassword,
-                });
-                
-                done(null, newUser); //
+                const nuevoUsuario = {
+                    first_name, 
+                    last_name, 
+                    email, 
+                    password
+                }
+                const usuarioAgregado = await  usersService.createUser(nuevoUsuario);                
+                done(null, usuarioAgregado); //
             } catch (error) {
             done(error);
             }
@@ -47,7 +47,7 @@ passport.use(
         async (email, password, done) => {
             try {
                 console.log('ejecutando passport.use login desde passport.js')
-                const userByEmail = await usersPersistence.findByEmail(email);
+                const userByEmail = await usersService.getUserByEmail(email);
                 if (!userByEmail) {                    
                     return done(null, false);
                 }
@@ -63,7 +63,6 @@ passport.use(
         }
     )
 ); 
-
 
 //passport-github
 passport.use("github",
@@ -84,7 +83,6 @@ passport.use("github",
         done(null, false);// si no le pongo false, se rompe, pero cn  false entiendo que devuelve un "error"
     }
 ));
-
 
 //serializeUser
 //metodo interno de passport

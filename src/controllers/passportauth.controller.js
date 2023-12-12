@@ -8,26 +8,23 @@ import passport from "passport";
 const baseURL = config.baseURL;
 
 async function passportLocalAuthSignup(req, res, next) { //el usuario se crea, pero no se hace la redireccion
-    console.log('ejecutando passportLocalAuthSignup desde users.controller.js') 
-    
-    const { first_name, last_name, email, password } = req.body;
+    alert('ejecutando passportLocalAuthSignup desde passportauth.controller.js') 
 
-    passport.authenticate("signup")(req, res, async (err) => {
+    passport.authenticate("plocalsignup")(req, res, async (err) => {
         console.log('probando passport local signup');
         if (err) {
             // Maneja errores si ocurren durante la autenticación
             console.log(err);
             return res.redirect("/error"); // Redirige a la página de error en caso de error
         }
-        res.redirect(`${baseURL}/realtimeproducts`);
+        await passportLocalAuthLogin(req, res);
+        //res.redirect(`${baseURL}/home`);// pongo redireccion al chat para confirmar si se hace la redireccion correctamente, ya que esta tomando la estrategia login local
     })
 
 };
 
 async function passportLocalAuthLogin(req, res, next) {
-    console.log('ejecutando passportLocalAuthLogin desde users.controller.js');
-    res.send('ejecutando passportLocalAuthLogin desde users.controller.js');
-    const {email, password} = req.body
+    alert('ejecutando passportLocalAuthLogin desde passportauth.controller.js');
 
     passport.authenticate("login")(req, res, async (err) => {  
         console.log('probando passport local login');
@@ -36,7 +33,7 @@ async function passportLocalAuthLogin(req, res, next) {
             console.log(err);
             return res.redirect("/error"); // Redirige a la página de error en caso de error
         }
-        //res.redirect(`${baseURL}/home`);
+        res.redirect(`${baseURL}/home`);
     });
 }
 

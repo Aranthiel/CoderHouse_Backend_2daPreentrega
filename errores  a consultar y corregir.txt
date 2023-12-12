@@ -1,0 +1,7 @@
+SESSION: no se guardan las sesiones en mongo db.
+passport-local: el registro no hace ningun redireccionamiento -  el login redirecciona a chat, pero NO ESTA CONFIGURADO PARA QUE HAGA ESO!!!
+No se si cuando logueo con passportlocal se guardan las cookies / sessiones
+
+cuando actualizo un cxarrito se reemplaza la info, no se "ageragn" los productos
+
+

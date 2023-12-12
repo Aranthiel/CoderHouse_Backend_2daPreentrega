@@ -1,5 +1,19 @@
 <h1>HOME</h1>
+<!--
+{{#with first_name}}
 <h3>Welcome {{first_name}}, your email is: {{email}}</h3>
+{{/with }}
+-->
+<h3>Welcome {{first_name}}, your email is: {{email}}</h3>
+<!--
+{{#if first_name}}
+  {{#with first_name}}
+    <h3>Welcome {{first_name}}, your email is: {{email}}</h3>
+  {{/with }}
+{{else}}
+  <h3>Welcome Guest, please log in</h3>
+{{/if}}
+-->
 
 <h3>Productos:</h3>
 <ul id="productList"></ul>

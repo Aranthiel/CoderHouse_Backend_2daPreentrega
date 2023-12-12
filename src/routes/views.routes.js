@@ -12,14 +12,14 @@ import {
 
 
 const viewsRouter = Router();
-
+viewsRouter.get('/', renderHome ); //listo
 viewsRouter.get('/home', renderHome ); //listo
 viewsRouter.get ('/login', renderLogin ) //listo
 viewsRouter.get ('/signup', renderSignup ); //listo
-viewsRouter.get('/chat', renderChat ); 
+viewsRouter.get('/chat', renderChat ); //listo
 viewsRouter.get('/realtimeproducts', renderRealTimeProducts); 
-viewsRouter.get('/cart/:cid', renderCartDetail); 
-viewsRouter.get('/product/:pid', renderProductDetail );
+viewsRouter.get('/cart/:cid', renderCartDetail); //listo
+viewsRouter.get('/products/:pid', renderProductDetail ); //listo
 
 
 export default viewsRouter;

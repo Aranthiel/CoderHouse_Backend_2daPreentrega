@@ -12,7 +12,7 @@ import {mySession}from './config/persistenceManager.js';
 
 //passport
 import passport from 'passport';
-import './config/passport.js';
+import './config/passportInitialize.js';
 
 //handlebars'
 import { engine } from "express-handlebars";
@@ -55,12 +55,10 @@ app.set("view engine", "handlebars");
 // Parsear las cookies
 app.use(cookieParser());
 
-
-
 // routes
 app.use("/api", apiRouter);
 app.use("/", viewsRouter);
-app.get("*", errorRouter);
+//app.get("*", errorRouter);
 
 
 // Inicia el servidor

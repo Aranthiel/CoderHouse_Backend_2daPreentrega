@@ -6,7 +6,9 @@ const baseURL= config.baseURL;
 
 async function renderHome(req,res){
     console.log('ejecutando renderHome en views.controller.js');
+    console.log('req.session de renderHome en views.controller.js', req.session)
     const { email, first_name, cart }= req.session || "";
+    console.log('Datos antes de renderizar:', { email, first_name, cart }); // Agrega esta línea
     res.render("home", {baseURL, email, first_name, cart });
 };
 
@@ -29,8 +31,10 @@ async function renderCartDetail(req,res){
 
 };
 
-async function renderProductDetail(req,res){    
+async function renderProductDetail(req,res){   
     console.log('ejecutando renderProductDetail en views.controller.js');
+    const productId = req.params.pid;
+    console.log('req.params.pid', productId)
     const { email, first_name, cart }= req.session || "";
     res.render("productDetail", {baseURL, email, first_name, cart });
 

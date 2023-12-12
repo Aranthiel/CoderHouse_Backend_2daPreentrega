@@ -10,16 +10,7 @@ import {
         //passportGithubCallback 
 } from '../controllers/passportauth.controller.js'
 
-
-
 const apiUsersAuth = Router();
-
-
-//Endpoint POST para REGISTRAR un usuario de forma local
-apiUsersAuth.post('/signup', userLocalSignup ); 
-
-//Endpoint POST para LOGUEAR un usuario de forma local
-apiUsersAuth.post('/login', userLocalLogin ); 
 
 // passport-github
 /*
@@ -31,7 +22,10 @@ apiUsersAuth.get("/githubCallback", passportGithubAuth, passportGithubCallback);
 apiUsersAuth.post('/passportsignup', passportLocalAuthSignup);
 apiUsersAuth.post('/passportlogin', passportLocalAuthLogin);
 
+//LOCAL 
 
+apiUsersAuth.post('/signup', userLocalSignup ); 
+apiUsersAuth.post('/login', userLocalLogin ); 
 
 
 export default apiUsersAuth;

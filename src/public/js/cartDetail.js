@@ -27,6 +27,22 @@ async function getCartDetail(cartId) {
     }
 }
 
+async function getProductDetail(productId) {
+    try {
+        const response = await fetch(`${baseURL}/api/products/${productId}`);
+        if (response.ok) {
+            const productDetail = await response.json();
+            return productDetail;
+        } else {
+            console.error(`Error al obtener detalles del producto con ID ${productId}: `, response.status, response.statusText);
+            return null;
+        }
+    } catch (error) {
+        console.error(`Error al obtener detalles del producto con ID ${productId}:`, error);
+        return null;
+    }
+}
+
 async function renderCartDetail(cartId) {
     console.log('Detalle carrito para renderizar con ID:', cartId);
     try {
@@ -42,17 +58,24 @@ async function renderCartDetail(cartId) {
 
         // Si la respuesta es exitosa y contiene la información esperada
         if (response.success && response.cartById && response.cartById.products) {
-            response.cartById.products.forEach((producto) => {
+            for (const producto of response.cartById.products) {
+                
                 const li = document.createElement('li');
                 li.classList.add('cartProductLi');
-
-                const anchor = document.createElement('a');
-                anchor.href = `${response.baseURL}/products/${producto._id}`;
-                anchor.textContent = `Titulo: ${producto.title} - Cantidad: ${producto.quantity} - Precio: ${producto.price} - Total: ${producto.quantity * producto.price}`;
-
-                li.appendChild(anchor);
-                ul.appendChild(li);
-            });
+    
+                const getProduct = await getProductDetail(producto.productoId);
+                const productDetail = getProduct.productById
+                console.log('producto linea 67',productDetail)
+                if (productDetail) {
+                    const anchor = document.createElement('a');
+                    anchor.href = `${baseURL}/products/${productDetail._id}`;
+                    anchor.textContent = `Titulo: ${productDetail.title} - Cantidad: ${producto.quantity} - Precio: ${productDetail.price} - Total: ${producto.quantity * productDetail.price}`;
+                    li.appendChild(anchor);
+                    ul.appendChild(li);
+                } else {
+                    console.error(`No se pudieron obtener detalles del producto con ID ${producto._id}`);
+                }
+            }
         } else {
             console.error('La respuesta no contiene la información esperada.');
         }

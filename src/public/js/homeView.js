@@ -50,10 +50,19 @@ function renderProductCard(product) {
 	actionsContainer.classList.add('actions-container');
 
 	const viewDetailsBtn = document.createElement('button');
-	viewDetailsBtn.textContent = 'Detalles'; // Texto para el botón de detalles
+	viewDetailsBtn.textContent = 'Detalles';
+	viewDetailsBtn.setAttribute('id', 'viewProductDetailsBtn'); 
+	viewDetailsBtn.dataset.productId = product._id; 
+	viewDetailsBtn.addEventListener('click', handleDetailsClick);
+
+
 
 	const addToCartBtn = document.createElement('button');
-	addToCartBtn.textContent = 'Agregar'; // Texto para el botón de agregar al carrito
+	addToCartBtn.textContent = 'Agregar'; 
+	addToCartBtn.setAttribute('id', 'addProductToCartBtn');
+	addToCartBtn.dataset.productId = product._id; 
+	addToCartBtn.addEventListener('click', handleAddToCartClick);
+
 
 	// Agregar botones al contenedor de acciones
 	actionsContainer.appendChild(viewDetailsBtn);
@@ -89,3 +98,53 @@ window.addEventListener('load', async function() {
         console.error('Hubo un error:', error);
     }
 });
+
+function handleDetailsClick(event) {
+    const productId = event.target.dataset.productId;
+    console.log(`Se hizo clic en Detalles del producto con ID ${productId}`);
+    
+    window.location.href = `/products/${productId}`;
+}
+
+async function handleAddToCartClick(event) {
+    const productId = event.target.dataset.productId;
+    console.log(`Se hizo clic en Agregar al carrito del producto con ID ${productId}`);
+
+    const cartId = obtenerCartId(); // Función para obtener el cartId desde la cookie
+    
+    if (cartId) {
+        try {
+            // Obtener el carrito actual antes de actualizarlo
+            const cartResponse = await fetch(`/api/carts/${cartId}`);
+            const cartData = await cartResponse.json();
+            
+            const existingProducts = cartData.products || [];
+            
+            // Verificar si el producto ya está en el carrito
+            const existingProductIndex = existingProducts.findIndex(product => product.productId === productId);
+
+            if (existingProductIndex !== -1) {
+                // Si el producto ya está en el carrito, actualizar la cantidad
+                existingProducts[existingProductIndex].quantity += 1;
+            } else {
+                // Si el producto no está en el carrito, agregarlo
+                existingProducts.push({ productId: productId, quantity: 1 });
+            }
+
+            // Realizar la actualización del carrito con los productos actualizados
+            const addToCartResponse = await fetch(`/api/carts/${cartId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ products: existingProducts })
+            });
+            // Puedes manejar la respuesta de la API aquí según sea necesario
+        } catch (error) {
+            console.error('Error al actualizar el carrito:', error);
+        }
+    } else {
+        console.error('No se encontró el cartId en la cookie');
+        // Manejar la situación donde no se encuentra el cartId en la cookie
+    }
+}

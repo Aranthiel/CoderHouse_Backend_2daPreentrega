@@ -16,4 +16,14 @@ errorRouter.get("*", async (req, res) => {
     });
 });
 
+errorRouter.get("/", async (req, res) => {
+    // Revisar si baseURL está disponible o configurado correctamente
+    if (baseURL) {
+        res.redirect(`${baseURL}/home`);
+    } else {
+        // Si no se puede obtener baseURL, redirigir a una ruta predeterminada
+        res.render('home');
+    }
+});
+
 export default errorRouter;
