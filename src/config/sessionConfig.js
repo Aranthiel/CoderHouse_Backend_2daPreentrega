@@ -3,6 +3,8 @@ import FileStore from 'session-file-store';
 import mongoStore from "connect-mongo";
 import config from './config.js';
 import { __dirname } from '../utils.js';
+//winston 
+import {myCustomLogger} from './configWinston.js'
 
 const fileStore = FileStore(session);
 

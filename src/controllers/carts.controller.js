@@ -2,12 +2,13 @@ import { cartsService } from '../services/carts.service.js';
 import { productService } from '../services/products.service.js'; // al crear un carrito
 import { usersService } from '../services/users.service.js'; //al crear un carrito
 import config from '../config/config.js';
-
+//winston
+import { logger, myCustomLogger} from '../config/configWinston.js';
 
 const persistencia=config.persistencia
 //funcion intermedia entre router y manager metodo GET para obtener TODOS LOS carritoS
 async function getAllCarts(req, res){
-    console.log('ejecutando getAllCarts en carts.controller.js')
+    myCustomLogger.test('ejecutando getAllCarts en carts.controller.js')
     const limit = req.query.limit ? req.query.limit : undefined;   
 
     try {
@@ -25,7 +26,7 @@ async function getAllCarts(req, res){
 
 //funcion intermedia entre router y manager metodo GET para obtener un carrito POR SU ID
 async function getCartById (req, res){
-    console.log('ejecutando getCartById en carts.controller.js')
+    myCustomLogger.test('ejecutando getCartById en carts.controller.js')
     const {cartId}=req.params; 
         
     try {        
@@ -42,10 +43,10 @@ async function getCartById (req, res){
 }; 
 
 async function associateCartToUser(userId, cartId) {
-    console.log('Ejecutando associateCartToUser en carts.controller.js');
+    myCustomLogger.test('Ejecutando associateCartToUser en carts.controller.js');
     try {
         const updatedUser = await usersService.updateUser(userId, { cart: cartId });
-        console.log('updatedUser', updatedUser)
+        myCustomLogger.test('updatedUser', updatedUser)
         return updatedUser;
     } catch (error) {
         throw new Error(`Error al asociar el carrito al usuario: ${error.message}`);
@@ -53,24 +54,24 @@ async function associateCartToUser(userId, cartId) {
 } // funciona ok 5/12
 
 async function verifyUser(userId) {
-    console.log('Ejecutando verifyUser en carts.controller.js');
+    myCustomLogger.test('Ejecutando verifyUser en carts.controller.js');
     const isValid = await usersService.getUserById(userId);        
         
         if (isValid) {
-            console.log('usuario verificado OK')
+            myCustomLogger.test('usuario verificado OK')
             return true
         } else {
-            console.log('El usuario no existe')
+            myCustomLogger.info('El usuario no existe')
             return false
         }
 }// funciona ok 5/12
 
 async function verifyProducts(products) {
     
-    console.log('Ejecutando verifyProducts en carts.controller.js');
+    myCustomLogger.test('Ejecutando verifyProducts en carts.controller.js');
     const invalidProducts = [];
     const validProducts = [];
-    console.log(`Has seleccionado la presistencia ${persistencia}`)
+    myCustomLogger.test(`Has seleccionado la presistencia ${persistencia}`)
     
     for (const product of products) {
         const isValid = await productService.getProductById(product.productoId);
@@ -83,14 +84,14 @@ async function verifyProducts(products) {
         }
         
     }
-    console.log('validProducts',validProducts, 'invalidProducts', invalidProducts)
+    myCustomLogger.test('validProducts',validProducts, 'invalidProducts', invalidProducts)
 
     return { invalidProducts, validProducts };
 } // funciona ok 5/12
 
 //funcion intermedia entre router y manager metodo POST para APGREGAR carrito
 async function addCart(req, res) {
-    console.log('Ejecutando addCart en carts.controller.js');
+    myCustomLogger.test('Ejecutando addCart en carts.controller.js');
     const { userId } = req.params;
     const { products } = req.body;
     
@@ -101,7 +102,7 @@ async function addCart(req, res) {
         //console.log('userExist', userExist)
         if(userExist && existingProducts.validProducts.length>0){
             const carritoCreado = await cartsService.createCart(existingProducts.validProducts);
-            console.log('carritoCreado', carritoCreado)
+            myCustomLogger.test('carritoCreado', carritoCreado)
         
             if (carritoCreado && carritoCreado._id) {
                 let responseMessage = `Carrito creado exitosamente y asociado al usuario ${userId}.`;
@@ -127,7 +128,7 @@ async function addCart(req, res) {
 
 //funcion intermedia entre router y manager metodo PUT para actualizar un carrito por su ID
 async function updateCart (req , res){
-    console.log('ejecutando updateCart en carts.controller.js')    
+    myCustomLogger.test('ejecutando updateCart en carts.controller.js')    
     const {cartId}=req.params;
     const newValues= req.body;
     try {        
@@ -157,7 +158,7 @@ async function updateCart (req , res){
 
 //funcion intermedia entre router y manager metodo DELETE para eliminar un carrito por su ID
 async function deleteCart(req , res){
-    console.log('ejecutando deletecart en carts.controller.js')
+    myCustomLogger.test('ejecutando deletecart en carts.controller.js')
     const {cartId}=req.params;
     try {
         const deletedCart = await cartsService.deleteCart(cartId);

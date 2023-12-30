@@ -30,6 +30,10 @@ import apiRouter from './routes/api.routes.js';
 import viewsRouter from './routes/views.routes.js';
 import errorRouter from './routes/error.routes.js';
 
+//winston
+import { logger, myCustomLogger} from './config/configWinston.js';
+
+
 const app = express();
 const PORT=config.port;
 
@@ -61,9 +65,19 @@ app.use("/", viewsRouter);
 //app.get("*", errorRouter);
 
 
+//custom levels
+myCustomLogger.fatal('probando winston fatal')
+myCustomLogger.error('probando winston error')
+myCustomLogger.warning('probando winston warning')
+myCustomLogger.info('probando winston info')
+myCustomLogger.http('probando winston http')
+myCustomLogger.debug('probando winston debug')
+myCustomLogger.test('probando winston test')
+
+
 // Inicia el servidor
 const httpServer = app.listen(PORT, ()=>(
-    console.log(`Pruebas server express. Servidor escuchando en http://localhost:${PORT}/home `)
+    myCustomLogger.info(`Pruebas server express. Servidor escuchando en http://localhost:${PORT}/home `)
 ));
 
 //const socketServer = new Server(httpServer);

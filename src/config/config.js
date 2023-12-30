@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 import program from "./commander.js";
+//winston 
+import {myCustomLogger} from './configWinston.js'
 
 /* 
 const mode = program.opts().mode;

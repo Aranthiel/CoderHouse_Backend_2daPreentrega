@@ -2,11 +2,13 @@ import { usersService } from '../services/users.service.js';
 import { hashData, compareData } from "../utils.js";
 import config from '../config/config.js';
 //import import jwt from 'jsonwebtoken';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
 
 const baseURL = config.baseURL;
 
 async function userLocalSignup(req, res) {
-    console.log(`ejecutando passportLocalAuthSignup desde localauth.controller.js`)
+    myCustomLogger.test(`ejecutando passportLocalAuthSignup desde localauth.controller.js`)
     const { first_name, last_name, email, password } = req.body;
     try {
         // Verificar si el usuario ya existe en la base de datos por el correo electrónico
@@ -37,7 +39,7 @@ async function userLocalSignup(req, res) {
 } // EL USUARIO SE CREA Y SE GUANDA EN LA DB - 
 
 async function userLocalLogin(req, res){
-    console.log(`ejecutando userLocalLogin desde localauth.controller.js`)
+    myCustomLogger.test(`ejecutando userLocalLogin desde localauth.controller.js`)
     const { email, password } = req.body;
 
     try {
@@ -76,7 +78,7 @@ async function userLocalLogin(req, res){
         res.cookie('email', user.email, { maxAge: 900000, httpOnly: true });
         res.cookie('cart', user.cart, { maxAge: 900000, httpOnly: false });
         
-        console.log('req.session en userLocalLogin', req.session)
+        
         
         // Generar un token JWT con la información del usuario
         //const token = jwt.sign({ user: userWithoutPassword }, 'secret_key', { expiresIn: '1h' });

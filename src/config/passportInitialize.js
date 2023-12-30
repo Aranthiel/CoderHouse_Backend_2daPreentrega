@@ -4,6 +4,8 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { hashData, compareData } from "../utils.js";
 import config from "./config.js";
+//winston 
+import {myCustomLogger} from './configWinston.js'
 
 //https://www.npmjs.com/package/passport
 
@@ -46,7 +48,7 @@ passport.use(
         },
         async (email, password, done) => {
             try {
-                console.log('ejecutando passport.use login desde passport.js')
+                myCustomLogger.test('ejecutando passport.use login desde passport.js')
                 const userByEmail = await usersService.getUserByEmail(email);
                 if (!userByEmail) {                    
                     return done(null, false);
@@ -72,9 +74,9 @@ passport.use("github",
         callbackURL: config.github_callback_url
     },
     async function(accessToken, refreshToken, profile, done) {
-        console.log('passport.use github')
-        console.log("user name en passport-github", profile._json.login); 
-        console.log("user email en passport-github", profile._json.email); 
+        myCustomLogger.test('passport.use github')
+        myCustomLogger.test("user name en passport-github", profile._json.login); 
+        myCustomLogger.test("user email en passport-github", profile._json.email); 
         const githubInfo ={
             name:profile._json.login,             
             email:profile._json.email, 

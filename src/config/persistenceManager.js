@@ -10,6 +10,9 @@ import {CartsFS} from '../dao/fileSistem_dao/carts.fs.js';
 
 //session
 import { fileSessionConfig, mongoSessionConfig } from  './sessionConfig.js';
+//winston 
+import {myCustomLogger} from './configWinston.js'
+
 
 const persistencia = config.persistencia;
 let mySession; 
@@ -29,7 +32,7 @@ if(persistencia==='mongo'){
     usersPersistence = new UsersFS('usuarios.json');
     cartsPersistence = new CartsFS('carritos.json');
     mySession = fileSessionConfig;
-    console.log(`Has seleccionado la presistencia en ${persistencia}. si no existen los archivos .json a veces da un error y no los crea, se soliciona si los creas manualmente
+    myCustomLogger.test(`Has seleccionado la presistencia en ${persistencia}. si no existen los archivos .json a veces da un error y no los crea, se soliciona si los creas manualmente
     `)
 }
 

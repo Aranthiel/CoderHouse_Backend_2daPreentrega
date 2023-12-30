@@ -1,6 +1,7 @@
 import { userModel } from '../../models/users.models.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
+import {myCustomLogger} from '../../config/configWinston.js'
 
 export class UsersFS {
     constructor(path) {        
@@ -8,7 +9,7 @@ export class UsersFS {
     }
 
     async findAll() {
-        console.log('ejecutando findAll en users.fs.js')
+        myCustomLogger.test('ejecutando findAll en users.fs.js')
         return new Promise(async (resolve, reject) => {
             try {
                 if (fs.existsSync(this.path)) {
@@ -26,7 +27,7 @@ export class UsersFS {
     }
 
     async findById(userId) {
-        console.log('ejecutando findById en users.fs.js')
+        myCustomLogger.test('ejecutando findById en users.fs.js')
         const uid = +userId;
         return new Promise(async (resolve, reject) => {
             try {
@@ -40,7 +41,7 @@ export class UsersFS {
     }
 
     async findByEmail(email) {
-        console.log('ejecutando findByEmail en users.fs.js')
+        myCustomLogger.test('ejecutando findByEmail en users.fs.js')
         return new Promise(async (resolve, reject) => {
             try {
                 const users = await this.findAll();
@@ -53,7 +54,7 @@ export class UsersFS {
     }
 
     async createOne(obj) {
-        console.log('ejecutando createOne en users.fs.js');
+        myCustomLogger.test('ejecutando createOne en users.fs.js');
         
         return new Promise(async (resolve, reject) => {
             try {
@@ -84,7 +85,7 @@ export class UsersFS {
     
 
     async updateOne(userId, newValue) {
-        console.log('ejecutando updateOne en users.fs.js')
+        myCustomLogger.test('ejecutando updateOne en users.fs.js')
         const uid = +userId;
         return new Promise(async (resolve, reject) => {
             try {
@@ -119,7 +120,7 @@ export class UsersFS {
     }
 
     async deleteOne(userId) {
-        console.log('ejecutando deleteOne en users.fs.js')
+        myCustomLogger.test('ejecutando deleteOne en users.fs.js')
         const uid = +userId;
         return new Promise(async (resolve, reject) => {
             try {

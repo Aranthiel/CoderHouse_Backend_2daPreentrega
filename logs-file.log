@@ -1,0 +1,162 @@
+{"level":"error","message":"probando winston error"}
+{"level":"warn","message":"probando winston warn"}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:37:15.257Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:37:15.260Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:38:43.737Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:38:43.741Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:42:32.832Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:42:32.837Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:44:44.436Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:44:44.441Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:44:44.445Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:44:44.446Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T15:57:16.477Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-16T15:57:16.487Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T15:57:16.482Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-16T15:57:16.489Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-16T16:39:49.068Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-16T16:39:49.076Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-16T16:39:49.072Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-16T16:39:49.076Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-30T21:08:35.151Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-30T21:08:35.159Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-30T21:08:35.160Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-30T21:08:35.154Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2023-12-30T21:15:50.440Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-30T21:15:50.446Z'
+}
+{
+  message: 'probando winston warn',
+  level: 'warn',
+  timestamp: '2023-12-30T21:15:50.444Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-30T21:15:50.447Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-30T21:16:37.646Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-30T21:16:37.650Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-30T21:17:30.129Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-30T21:17:30.132Z'
+}
+{
+  message: 'probando winston epic',
+  level: 'epic',
+  timestamp: '2023-12-30T21:18:24.718Z'
+}
+{
+  message: 'probando winston legendary',
+  level: 'legendary',
+  timestamp: '2023-12-30T21:18:24.721Z'
+}

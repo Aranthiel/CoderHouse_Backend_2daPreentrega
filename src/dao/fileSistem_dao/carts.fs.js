@@ -1,6 +1,8 @@
 import { cartModel } from '../../models/carts.model.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
+//winston 
+import {myCustomLogger} from '../../config/configWinston.js'
 
 export class CartsFS {
     constructor(path) {     
@@ -8,7 +10,7 @@ export class CartsFS {
     }
 
     async findAll() {
-        console.log('ejecutando findAll en carts.fs.js')
+        myCustomLogger.test('ejecutando findAll en carts.fs.js')
         return new Promise(async (resolve, reject) => {
             try {
                 if (fs.existsSync(this.path)) {
@@ -27,7 +29,7 @@ export class CartsFS {
     }
 
     async findById(cartId) {
-        console.log('ejecutando findById en carts.fs.js')
+        myCustomLogger.test('ejecutando findById en carts.fs.js')
         const cid = +cartId;
         return new Promise(async (resolve, reject) => {
             try {
@@ -42,7 +44,7 @@ export class CartsFS {
     }
 
     async createOne(obj) {
-        console.log('ejecutando createOne en carts.fs.js');
+        myCustomLogger.test('ejecutando createOne en carts.fs.js');
         
         return new Promise(async (resolve, reject) => {
             try {
@@ -66,7 +68,7 @@ export class CartsFS {
     }
     
     async updateOne(cartId, newValue) {
-        console.log('ejecutando updateOne en carts.fs.js');
+        myCustomLogger.test('ejecutando updateOne en carts.fs.js');
         const cid = +cartId;
     
         try {
@@ -75,8 +77,8 @@ export class CartsFS {
             if (!cart) {
                 throw new Error('Carrito no encontrado para actualizar');
             } else {
-                console.log('updateOne else cart antes de combinar', cart);
-                console.log('updateOne else newValue antes de combinar', newValue);
+                myCustomLogger.test('updateOne else cart antes de combinar', cart);
+                myCustomLogger.test('updateOne else newValue antes de combinar', newValue);
     
                 // Actualizar el carrito con los nuevos valores y mantener el ID original                    
                 newValue.products.forEach(newProduct => {
@@ -91,7 +93,7 @@ export class CartsFS {
                     }
                 });
     
-                console.log('updateOne else cart combinado', cart);
+                myCustomLogger.test('updateOne else cart combinado', cart);
     
                 // Recuperar el arreglo de carritos
                 const carts = await this.findAll();
@@ -115,7 +117,7 @@ export class CartsFS {
     
 
     async deleteOne(cartId) {
-        console.log('ejecutando deleteOne en carts.fs.js')
+        myCustomLogger.test('ejecutando deleteOne en carts.fs.js')
         const cid = +cartId;
         return new Promise(async (resolve, reject) => {
             try {

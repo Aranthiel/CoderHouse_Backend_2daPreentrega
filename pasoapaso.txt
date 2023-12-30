@@ -16,3 +16,4 @@ npm install passport-github2
 npm i commander
 npm i dotenv
 npm i cors
+npm intall winston

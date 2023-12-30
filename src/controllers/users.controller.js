@@ -1,8 +1,11 @@
 import { usersService } from '../services/users.service.js';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
+
 
 //funcion intermedia entre router y manager metodo GET para obtener TODOS LOS usuarioS
 async function getAllUsers(req, res){
-    console.log('ejecutando getAllUsers en users.controller.js')
+    myCustomLogger.test('ejecutando getAllUsers en users.controller.js')
     const limit = req.query.limit ? req.query.limit : undefined;   
 
     try {
@@ -20,7 +23,7 @@ async function getAllUsers(req, res){
 
 //funcion intermedia entre router y manager metodo GET para obtener un usuario POR SU ID
 async function getUserById (req, res){
-    console.log('ejecutando getUserById en users.controller.js')
+    myCustomLogger.test('ejecutando getUserById en users.controller.js')
     const {userId}=req.params; 
         
     try {        
@@ -40,7 +43,7 @@ async function getUserById (req, res){
 
 //funcion intermedia entre router y manager metodo POST para APGREGAR usuario
 async function addUser (req, res){
-    console.log('ejecutando addUser en users.controller.js')   
+    myCustomLogger.test('ejecutando addUser en users.controller.js')   
     const nuevoUsuario= req.body
     
     try {
@@ -61,7 +64,7 @@ async function addUser (req, res){
 
 //funcion intermedia entre router y manager metodo PUT para actualizar un usuario por su ID
 async function updateUser (req , res){
-    console.log('ejecutando updateUser en users.controller.js')    
+    myCustomLogger.test('ejecutando updateUser en users.controller.js')    
     const {userId}=req.params;
     const newValues= req.body;
     try {
@@ -79,7 +82,7 @@ async function updateUser (req , res){
 
 //funcion intermedia entre router y manager metodo DELETE para eliminar un usuario por su ID
 async function deleteUser(req , res){
-    console.log('ejecutando deleteUser en users.controller.js')
+    myCustomLogger.test('ejecutando deleteUser en users.controller.js')
     const {userId}=req.params;
     try {
         const deleteduser = await usersService.deleteUser(userId);

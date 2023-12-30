@@ -1,8 +1,10 @@
 import { productService } from '../services/products.service.js';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
 
 //funcion intermedia entre router y manager metodo GET para obtener TODOS LOS PRODUCTOS
 async function getAllProducts(req, res){
-    console.log('ejecutando getAllProducts en products.controller.js')
+    myCustomLogger.test('ejecutando getAllProducts en products.controller.js')
     const limit = req.query.limit ? req.query.limit : undefined;   
 
     try {
@@ -20,7 +22,7 @@ async function getAllProducts(req, res){
 
 //funcion intermedia entre router y manager metodo GET para obtener un PRODUCTO POR SU ID
 async function getProductById (req, res){
-    console.log('ejecutando getProductById en products.controller.js')
+    myCustomLogger.test('ejecutando getProductById en products.controller.js')
     const {productId}=req.params;    
         
     try {        
@@ -38,12 +40,12 @@ async function getProductById (req, res){
 
 //funcion intermedia entre router y manager metodo POST para APGREGAR PRODUCTO
 async function addProduct (req, res){
-    console.log('ejecutando addProduct en products.controller.js')   
+    myCustomLogger.test('ejecutando addProduct en products.controller.js')   
     const nuevoProducto= req.body
     
     try {
         const productoAgregado = await productService.addProduct(nuevoProducto);
-        console.log('productoAgregado addProduct en products.controller.js', productoAgregado)
+        myCustomLogger.test('productoAgregado addProduct en products.controller.js', productoAgregado)
         
         if (productoAgregado instanceof Error) {
             // Manejar el caso de error debido a duplicación de código de producto
@@ -60,12 +62,12 @@ async function addProduct (req, res){
 
 //funcion intermedia entre router y manager metodo PUT para actualizar un producto por su ID
 async function updateProduct (req , res){
-    console.log('ejecutando updateProduct en products.controller.js')    
+    myCustomLogger.test('ejecutando updateProduct en products.controller.js')    
     const {productId}=req.params;
     const newValues= req.body;
     try {
         const response = await productService.updateProduct(productId, newValues);
-        console.log(response);
+        myCustomLogger.test(response);
         if(response != null){
             res.status(200).json({success: true, message: 'Producto actualizado:', response});
         } else {
@@ -78,7 +80,7 @@ async function updateProduct (req , res){
 
 //funcion intermedia entre router y manager metodo DELETE para eliminar un producto por su ID
 async function deleteProduct(req , res){
-    console.log('ejecutando deleteProduct en products.controller.js')
+    myCustomLogger.test('ejecutando deleteProduct en products.controller.js')
     const {productId}=req.params;
     try {
         const deletedProduct = await productService.deleteProduct(productId);

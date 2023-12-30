@@ -4,11 +4,13 @@ import {productsMongo}  from '../dao/mongo_dao/products.mongo.js';
 const productsPersistence = new productsPersistence();
 */
 import {productsPersistence} from '../config/persistenceManager.js'
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
 
 class ProductsService {   
 
     async getAllProducts(limit){
-        console.log('ejecutando getAllProducts en products.service.js')
+        myCustomLogger.test('ejecutando getAllProducts en products.service.js')
         try {
             const productsList = await productsPersistence.findAllAndLimit(limit);
             
@@ -20,14 +22,14 @@ class ProductsService {
     }
         
     async getProductById(pid){
-        console.log('ejecutando getProductById en products.service.js')
+        myCustomLogger.test('ejecutando getProductById en products.service.js')
         try {
             const product = await productsPersistence.findById(pid); 
             
             
             if(!product){
                 //return `ERROR:NOT FOUND. El producto ${productId} NO se encuentra en el listado de productos, por favor ingrese un producto válido`;
-                console.log(`ERROR:NOT FOUND. El producto ${pid} NO se encuentra en el listado de productos, por favor ingrese un producto válido`);
+                myCustomLogger.error(`ERROR:NOT FOUND. El producto ${pid} NO se encuentra en el listado de productos, por favor ingrese un producto válido`);
                 return null; // Devuelve null en lugar de una cadena de error
         
             } else {
@@ -41,10 +43,10 @@ class ProductsService {
     };    
     
     async addProduct(obj){
-        console.log('ejecutando addProduct en products.service.js')
+        myCustomLogger.test('ejecutando addProduct en products.service.js')
         try {
             const newProduct= await productsPersistence.createOne(obj); 
-            console.log('newProduct addProduct en products.service.js', newProduct)
+            myCustomLogger.test('newProduct addProduct en products.service.js', newProduct)
             return newProduct;
         } catch (error) {
             console.error('No se pudo agregar el producto', error);
@@ -53,7 +55,7 @@ class ProductsService {
     };
     
     async updateProduct(pid, obj){
-        console.log('ejecutando updateProduct en products.service.js')        
+        myCustomLogger.test('ejecutando updateProduct en products.service.js')        
         try {
             // Buscar el producto a actualizar por su ID
             let response = await productsPersistence.updateOne(pid, obj);
@@ -72,7 +74,7 @@ class ProductsService {
     };
         
     async deleteProduct(pid){
-        console.log('ejecutando deleteProduct en products.service.js');
+        myCustomLogger.test('ejecutando deleteProduct en products.service.js');
         try {
             const product = await productsPersistence.deleteOne(pid);
             return product;

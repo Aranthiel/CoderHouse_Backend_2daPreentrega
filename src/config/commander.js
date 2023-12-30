@@ -1,4 +1,6 @@
 import { program } from "commander";
+//winston 
+import {myCustomLogger} from './configWinston.js'
 
 program
     .option('--db <db>', 'define el modo de persistencia de datos', 'mongo')

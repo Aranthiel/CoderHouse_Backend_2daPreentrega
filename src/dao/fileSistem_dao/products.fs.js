@@ -1,7 +1,7 @@
 import { productModel } from '../../models/products.model.js';
 import fs from 'fs';
 import { writeDataToFile } from './fsUtils.js';
-
+import {myCustomLogger} from '../../config/configWinston.js'
 export class ProductsFS{
     /*Debe crearse desde su contructor con el elemento products, el cual será un arreglo vacío */
 
@@ -89,7 +89,7 @@ export class ProductsFS{
             try {
                 // Buscar el producto a actualizar por su ID
                 let product = await this.findById(pid);
-                console.log('product updateOne en products.fs.js', product)
+                myCustomLogger.test('product updateOne en products.fs.js', product)
     
                 if (!product) {
                     // Producto no encontrado, rechaza la promesa con un mensaje

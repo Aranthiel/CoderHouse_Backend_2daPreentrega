@@ -2,6 +2,8 @@ import { Server } from 'socket.io'; // Para gestionar las conexiones de WebSocke
 
 import { chatModel } from '../models/chats.model.js';
 import config from '../config/config.js';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
 
 
 const PORT = config.port || 8080; // Si no hay variable PORT definida, usa 8080 por defecto
@@ -19,7 +21,7 @@ export function initializeSocket(server) {
 
 
     socketServer.on("connection", async (socket) => {
-        console.log(`se ha conectado el cliente ${socket.id}`);
+        myCustomLogger.info(`se ha conectado el cliente ${socket.id}`);
 
         const productosIniciales = await getAllProductsSocket();
         socket.emit('productosInicialesRT', productosIniciales);
@@ -32,7 +34,7 @@ export function initializeSocket(server) {
         
         // Handle Disconnect
         socket.on("disconnect", () => {
-            console.log(`cliente desconectado ${socket.id}`);
+            myCustomLogger.info(`cliente desconectado ${socket.id}`);
         });
     });
 
@@ -43,19 +45,19 @@ export function initializeSocket(server) {
         });
 
         socket.on("newChatMessage", (info) => {
-            console.log('Mensaje recibido:', info);
+            myCustomLogger.test('Mensaje recibido:', info);
             
             const newMessage = new chatModel({
                 name: info.name,
                 message: info.message
             });
         
-            console.log('Nuevo mensaje a guardar:', newMessage);
+            myCustomLogger.test('Nuevo mensaje a guardar:', newMessage);
         
             newMessage
                 .save()
                 .then(savedMessage => {
-                    console.log('Mensaje guardado con éxito. ID:', savedMessage._id);
+                    myCustomLogger.test('Mensaje guardado con éxito. ID:', savedMessage._id);
                     messages.push(info);
                     socketServer.emit('chatMessages', messages);
                 })
@@ -87,7 +89,7 @@ export function initializeSocket(server) {
         //funcion para hacer fetch a `${BASE_URL}/api/products/` y devolver una response de forma de reemplazar getAllProductsC por esta funcion en el resto del codigo
 
         socket.on('addProduct', async (nProduct) => {
-            console.log('Evento "addProduct" recibido en el servidor con los siguientes datos:', nProduct);
+            myCustomLogger.test('Evento "addProduct" recibido en el servidor con los siguientes datos:', nProduct);
             
             const newProductData = {
                 title: nProduct.title,
@@ -121,7 +123,7 @@ export function initializeSocket(server) {
         
 
         socket.on('borrar', async (selectedProductIds) => {
-            console.log('Evento "borrar" recibido en el servidor con los siguientes datos:', selectedProductIds);
+            myCustomLogger.test('Evento "borrar" recibido en el servidor con los siguientes datos:', selectedProductIds);
             try {
                 for (const productId of selectedProductIds) {
                     try {
@@ -137,7 +139,7 @@ export function initializeSocket(server) {
                     }
                 }
 
-                console.log('Todas las eliminaciones se completaron con éxito');
+                myCustomLogger.test('Todas las eliminaciones se completaron con éxito');
                 const productosActualizados = await getAllProductsSocket();
                 socketServer.emit('productsUpdated', productosActualizados);
             } catch (error) {

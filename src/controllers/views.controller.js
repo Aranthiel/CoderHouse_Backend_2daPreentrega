@@ -1,53 +1,55 @@
 import config from '../config/config.js';
 import {productsPersistence} from '../config/persistenceManager.js';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
 
 
 const baseURL= config.baseURL;
 
 async function renderHome(req,res){
-    console.log('ejecutando renderHome en views.controller.js');
-    console.log('req.session de renderHome en views.controller.js', req.session)
+    myCustomLogger.test('ejecutando renderHome en views.controller.js');
+    myCustomLogger.test('req.session de renderHome en views.controller.js', req.session)
     const { email, first_name, cart }= req.session || "";
-    console.log('Datos antes de renderizar:', { email, first_name, cart }); // Agrega esta línea
+    myCustomLogger.test('Datos antes de renderizar:', { email, first_name, cart }); // Agrega esta línea
     res.render("home", {baseURL, email, first_name, cart });
 };
 
 async function renderSignup(req,res){
-    console.log('ejecutando renderSignup en views.controller.js'); 
+    myCustomLogger.test('ejecutando renderSignup en views.controller.js'); 
     const { email, first_name, cart }= req.session || "";
     res.render("signup", {baseURL, email, first_name, cart });
 };
 
 async function renderLogin(req,res){
-    console.log('ejecutando renderLogin en views.controller.js'); 
+    myCustomLogger.test('ejecutando renderLogin en views.controller.js'); 
     const { email, first_name, cart }= req.session || "";
     res.render("login", {baseURL, email, first_name, cart });
 };
 
 async function renderCartDetail(req,res){
-    console.log('ejecutando renderCartDetail en views.controller.js');
+    myCustomLogger.test('ejecutando renderCartDetail en views.controller.js');
     const { email, first_name, cart }= req.session || "";
     res.render("cartDetail", {baseURL, email, first_name, cart });
 
 };
 
 async function renderProductDetail(req,res){   
-    console.log('ejecutando renderProductDetail en views.controller.js');
+    myCustomLogger.test('ejecutando renderProductDetail en views.controller.js');
     const productId = req.params.pid;
-    console.log('req.params.pid', productId)
+    myCustomLogger.test('req.params.pid', productId)
     const { email, first_name, cart }= req.session || "";
     res.render("productDetail", {baseURL, email, first_name, cart });
 
 };
 
 async function renderChat(req,res){
-    console.log('ejecutando renderChat en views.controller.js');
+    myCustomLogger.test('ejecutando renderChat en views.controller.js');
     const { email, first_name, cart }= req.session || "";
     res.render("chat", {baseURL, email, first_name, cart });
 };
 
 async function renderRealTimeProducts(req,res){
-    console.log('ejecutando getRealTimeProductsC en views.controller.js');
+    myCustomLogger.test('ejecutando getRealTimeProductsC en views.controller.js');
     const { email, first_name, cart }= req.session || "";
     const limit = req.query.limit ? parseInt(req.query.limit) : undefined;   
     

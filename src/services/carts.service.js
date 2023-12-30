@@ -1,9 +1,12 @@
 //import {cartsMongo} from '../dao/mongo_dao/carts.mongo';
 import {cartsPersistence} from '../config/persistenceManager.js';
+//winston 
+import {myCustomLogger} from '../config/configWinston.js'
+
 class CartsService {
 
     async getAllCarts(limit){
-        console.log('ejecutando getAllCarts en carts.service.js');
+        myCustomLogger.test('ejecutando getAllCarts en carts.service.js');
         try {
             const response = await cartsPersistence.findAll()
             return response;
@@ -14,7 +17,7 @@ class CartsService {
     };
 
     async getCartById(cid){
-        console.log('ejecutando getCartById en carts.service.js');
+        myCustomLogger.test('ejecutando getCartById en carts.service.js');
         try {
             const response = await cartsPersistence.findById(cid)
             return response
@@ -25,7 +28,7 @@ class CartsService {
     };
 
     async createCart(products){
-        console.log('ejecutando createCart en carts.service.js');
+        myCustomLogger.test('ejecutando createCart en carts.service.js');
         const cartProducts = {
             products: products.map(product => ({
                 productoId: product.productoId,
@@ -33,9 +36,9 @@ class CartsService {
             }))
         }; 
         try {
-            console.log('llamando al mentodo cartsPersistence.createOne(cartProducts)');
+            myCustomLogger.test('llamando al mentodo cartsPersistence.createOne(cartProducts)');
             const response = await cartsPersistence.createOne(cartProducts);
-            console.log('Carrito creado con éxito:', response);
+            myCustomLogger.test('Carrito creado con éxito:', response);
             return response;
         } catch (error) {
             console.error('Error al crear el carrito:', error);
@@ -44,7 +47,7 @@ class CartsService {
     };
 
     async updateCart(cartId, updateCartProducts) {
-        console.log('ejecutando updateCart en carts.service.js');
+        myCustomLogger.test('ejecutando updateCart en carts.service.js');
         try {
             // Actualizar el carrito con los productos actualizados
             const response = await cartsPersistence.updateOne(cartId, { products: updateCartProducts });
@@ -59,10 +62,10 @@ class CartsService {
     
 
     async deleteCart(cid){
-        console.log('ejecutando deleteCart en carts.service.js');
+        myCustomLogger.test('ejecutando deleteCart en carts.service.js');
         try {
             const response = await cartsPersistence.deleteOne(cid);
-            console.log('Carrito actualizado con éxito:', response);
+            myCustomLogger.test('Carrito actualizado con éxito:', response);
             return response;
         } catch (error) {
             console.error('Error al actualizar el carrito:', error);
