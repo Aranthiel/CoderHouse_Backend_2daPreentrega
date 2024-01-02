@@ -1,9 +1,9 @@
-import { usersService } from '../services/users.service.js';
-import { hashData, compareData } from "../utils.js";
-import config from '../config/config.js';
+import { usersService } from '../../services/users.service.js';
+import { hashData, compareData } from "../../utils.js";
+import config from '../../config/config.js';
 //import import jwt from 'jsonwebtoken';
 //winston 
-import {myCustomLogger} from '../config/configWinston.js'
+import {myCustomLogger} from '../../config/configWinston.js'
 
 import passport from "passport";
 
@@ -39,21 +39,7 @@ async function passportLocalAuthLogin(req, res, next) {
     });
 }
 
-/*
-const passportGithubAuth = passport.authenticate("github", { scope: ["user:email"] });
-
-
-const passportGithubCallback = (req, res, next) => {
-    console.log('ejecutando passportGithubCallback en users.controller.js')
-    return res.redirect("/productsFS");
-    };
-*/
-
-
-
 export {
     passportLocalAuthSignup,
     passportLocalAuthLogin,
-    //passportGithubAuth, 
-    //passportGithubCallback 
     }

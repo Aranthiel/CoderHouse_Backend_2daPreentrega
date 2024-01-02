@@ -29,6 +29,7 @@ class UsersService{
         console.log('ejecutando getUserByEmail en users.service.js');
         try {
             const response = await usersPersistence.findByEmail( email );
+            
             return response;
         } catch (error) {
             console.error('No se encontró el usuario solicitado', error);

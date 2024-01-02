@@ -278,3 +278,774 @@
   level: 'error',
   timestamp: '2023-12-30T21:54:05.295Z'
 }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T03:51:05.156Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T03:51:05.159Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T03:56:06.956Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T03:56:06.961Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T03:59:57.469Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T03:59:57.473Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:03:32.498Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:03:32.503Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:07:31.028Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:07:31.034Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:18:08.998Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:18:09.002Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:18:20.196Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:18:20.201Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:18:49.447Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:18:49.451Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:23:34.662Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:23:34.667Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:26:58.276Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:26:58.280Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:46:12.329Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:46:12.332Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:47:29.016Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:47:29.020Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:47:45.367Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:47:45.372Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:54:12.974Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:54:12.979Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T04:55:57.275Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T04:55:57.280Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:03:12.701Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:03:12.704Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:03:55.363Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:03:55.367Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:08:53.428Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:08:53.433Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:14:23.168Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:14:23.173Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:17:28.398Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:17:28.402Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:18:11.564Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:18:11.569Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:18:24.945Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:18:24.950Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:18:35.922Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:18:35.927Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:21:33.636Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:21:33.640Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:34:42.338Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:34:42.341Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:35:58.937Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:35:58.941Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:37:19.600Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:37:19.604Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:48:16.725Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:48:16.729Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:51:19.951Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:51:19.956Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:51:46.784Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:51:46.787Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:52:39.962Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:52:39.966Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T05:58:47.702Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T05:58:47.706Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:01:20.251Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:01:20.255Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:08:40.555Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:08:40.558Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:09:43.241Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:09:43.244Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:12:15.072Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:12:15.077Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:17:42.080Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:17:42.083Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:18:59.474Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:18:59.478Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:23:49.937Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:23:49.941Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:24:31.548Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:24:31.552Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:25:27.452Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:25:27.456Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:26:17.889Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:26:17.894Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:28:29.643Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:28:29.646Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:31:30.541Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:31:30.547Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:47:00.609Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:47:00.612Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:51:12.567Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:51:12.571Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:51:56.084Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:51:56.088Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T06:56:55.528Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T06:56:55.532Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:01:00.792Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:01:00.796Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:10:43.961Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:10:43.965Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:12:03.115Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:12:03.120Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:13:31.263Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:13:31.267Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:20:00.243Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:20:00.250Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:22:45.883Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:22:45.888Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:23:16.291Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:23:16.295Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:27:35.884Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:27:35.888Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:36:55.823Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:41:53.182Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:41:53.187Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:42:00.339Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:42:00.346Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:42:23.279Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:43:51.522Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:43:51.526Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:44:21.426Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:46:58.821Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:46:58.825Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:48:25.550Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:48:25.554Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:51:37.641Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:51:37.646Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:52:01.950Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:55:10.030Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:55:10.034Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:55:39.580Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:55:39.583Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:56:28.613Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T07:58:07.341Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T07:58:07.346Z'
+}
+{ level: 'error', timestamp: '2024-01-02T07:58:58.466Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:01:12.871Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:01:12.876Z'
+}
+{ level: 'error', timestamp: '2024-01-02T08:01:36.047Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:02:38.478Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:02:38.483Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:02:54.023Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:02:54.031Z'
+}
+{ level: 'error', timestamp: '2024-01-02T08:03:15.082Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:04:56.300Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:04:56.304Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:05:42.260Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:05:42.264Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:06:26.590Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:06:26.594Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:07:53.412Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:07:53.416Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:07:58.802Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:07:58.806Z'
+}
+{ level: 'error', timestamp: '2024-01-02T08:10:06.765Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:11:51.605Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:11:51.610Z'
+}
+{ level: 'error', timestamp: '2024-01-02T08:12:22.123Z' }
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:14:44.633Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:14:44.638Z'
+}
+{
+  message: 'probando winston fatal',
+  level: 'fatal',
+  timestamp: '2024-01-02T08:15:12.002Z'
+}
+{
+  message: 'probando winston error',
+  level: 'error',
+  timestamp: '2024-01-02T08:15:12.006Z'
+}
+{ level: 'error', timestamp: '2024-01-02T08:15:58.124Z' }

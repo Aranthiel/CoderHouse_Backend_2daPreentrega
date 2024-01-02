@@ -1,110 +1,116 @@
-import passport from "passport";
-import {usersService} from '../services/users.service.js';
-import { Strategy as LocalStrategy } from "passport-local";
-import { Strategy as GitHubStrategy } from "passport-github2";
+import passport from 'passport';
+import { usersService } from '../services/users.service.js';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as GitHubStrategy } from 'passport-github2';
 import { hashData, compareData } from "../utils.js";
-import config from "./config.js";
-//winston 
-import {myCustomLogger} from './configWinston.js'
+import config from './config.js';
+import { myCustomLogger } from './configWinston.js';
 
-//https://www.npmjs.com/package/passport
-
-// passport-local
-passport.use(
-    "plocalsignup",
-    new LocalStrategy(
-        {
-            usernameField: "email", // indica que en lugar de hcer el loguin con nombre de usuario, utiliza mail
-            passReqToCallback: true, // pasa la informacion de req al callback
-        },
-        async (req, email, password, done) => {
-            const { first_name, last_name } = req.body;
-            try {
-                //verifica si ya existe un usuario con el email 
-                const allReadyExist = await usersService.getUserByEmail(email);
-                if (allReadyExist) {
-                    return done(null, false); //no hubo error, pero no devuelve usuario
-                }
-                const nuevoUsuario = {
-                    first_name, 
-                    last_name, 
-                    email, 
-                    password
-                }
-                const usuarioAgregado = await  usersService.createUser(nuevoUsuario);                
-                done(null, usuarioAgregado); //
-            } catch (error) {
-            done(error);
+const localSignupStrategy = new LocalStrategy(
+    {
+        usernameField: 'email',
+        passReqToCallback: true,
+    },
+    async (req, email, password, done) => {
+        console.log('localSignupStrategy activada');
+        const { first_name, last_name } = req.body;
+        try {
+            const alreadyExists = await usersService.getUserByEmail(email);
+            if (alreadyExists) {
+                return done(null, false);
             }
+            const nuevoUsuario = {
+                first_name,
+                last_name,
+                email,
+                password,
+            };
+            const usuarioAgregado = await usersService.createUser(nuevoUsuario);
+            return done(null, usuarioAgregado);
+        } catch (error) {
+            return done(error);
         }
-    )
+    }
 );
 
-passport.use(
-    "login",
-    new LocalStrategy(
-        {
-        usernameField: "email",
-        },
-        async (email, password, done) => {
-            try {
-                myCustomLogger.test('ejecutando passport.use login desde passport.js')
-                const userByEmail = await usersService.getUserByEmail(email);
-                if (!userByEmail) {                    
+const localLoginStrategy = new LocalStrategy(
+    {
+        usernameField: 'email',
+    },
+    async (email, password, done) => {
+        console.log('localLoginStrategy activada');
+        try {
+            const userByEmail = await usersService.getUserByEmail(email);
+
+            if (!userByEmail) {
+                return done(null, false);
+            }
+            
+
+            const passwordMatch = await compareData(password, userByEmail.password);
+            if (!passwordMatch) {
+                return done(null, false);
+            }
+            console.log('userByEmail', userByEmail)
+            return done(null, userByEmail);
+        } catch (error) {
+            console.log('passporerror')
+            return done(error);
+        }
+    }
+);
+
+const githubStrategy = new GitHubStrategy(
+    {
+        clientID: config.ghithub_client_id,
+        clientSecret: config.github_client_secret,
+        callbackURL: config.github_callback_url,
+    },
+    async (accessToken, refreshToken, profile, done) => {
+        console.log('Estrategia de GitHub activada');
+        try {
+            const existingUser = await usersService.getUserByEmail(profile._json.email);
+
+            if (existingUser) {
+                if (existingUser.from_github) {
+                    // Si el usuario ya existe y es de GitHub, se autentica sin modificar la sesión
+                    return done(null, existingUser);
+                } else {
                     return done(null, false);
                 }
-                const isValid = await compareData(password, userByEmail.password);
-                if (!isValid) {                    
-                return done(null, false);
-                }
-                
-                done(null, userByEmail);
-            } catch (error) {
-                done(error);
             }
-        }
-    )
-); 
 
-//passport-github
-passport.use("github",
-    new GitHubStrategy({
-        clientID: config.ghithub_client_id,
-        clientSecret: config. github_client_secret,
-        callbackURL: config.github_callback_url
-    },
-    async function(accessToken, refreshToken, profile, done) {
-        myCustomLogger.test('passport.use github')
-        myCustomLogger.test("user name en passport-github", profile._json.login); 
-        myCustomLogger.test("user email en passport-github", profile._json.email); 
-        const githubInfo ={
-            name:profile._json.login,             
-            email:profile._json.email, 
-        }
+            const newGithubUser = {
+                first_name: profile._json.given_name,
+                last_name: profile._json.family_name,
+                email: profile._json.email,
+                password: ' ',
+                from_github: true,
+            };
 
-        done(null, false);// si no le pongo false, se rompe, pero cn  false entiendo que devuelve un "error"
+            const addGithubUser = await usersService.createUser(newGithubUser);
+            return done(null, addGithubUser);
+        } catch (error) {
+            return done(error);
+        }
     }
-));
+);
 
-//serializeUser
-//metodo interno de passport
-//recupera el usuario y se queda solamente con el id
-passport.serializeUser(function(user, done) {
+passport.use('plocalsignup', localSignupStrategy);
+passport.use('plocallogin', localLoginStrategy);
+passport.use('github', githubStrategy);
+
+passport.serializeUser(function (user, done) {
     done(null, user._id);
 });
 
-//deserializeUser
-//metodo interno de passport
-//con el id recupera la informacion del usuario
-passport.deserializeUser(async function(id, done) {
-    //mi codigo
+passport.deserializeUser(async function (id, done) {
     try {
         const user = await usersPersistence.findById(id);
         done(null, user);
     } catch (error) {
-        done(error)
+        done(error);
     }
 });
 
-
-
+export default passport;

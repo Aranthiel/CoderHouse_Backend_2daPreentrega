@@ -1,9 +1,9 @@
-import { usersService } from '../services/users.service.js';
-import { hashData, compareData } from "../utils.js";
-import config from '../config/config.js';
+import { usersService } from '../../services/users.service.js';
+import { hashData, compareData } from "../../utils.js";
+import config from '../../config/config.js';
 //import import jwt from 'jsonwebtoken';
 //winston 
-import {myCustomLogger} from '../config/configWinston.js'
+import {myCustomLogger} from '../../config/configWinston.js'
 
 const baseURL = config.baseURL;
 

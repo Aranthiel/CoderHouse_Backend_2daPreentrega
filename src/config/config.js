@@ -28,5 +28,6 @@ export default{
     ghithub_client_id: process.env.GITHUB_CLIENT_ID,
     github_client_secret: process.env.GITHUB_CLIENT_SECRET,
     github_callback_url: process.env.GITHUB_CALLBACK_URL,
-    baseURL: process.env.BASE_URL 
+    baseURL: process.env.BASE_URL, 
+    cookie_secret : process.env.COOKIE_SECRET
 }
